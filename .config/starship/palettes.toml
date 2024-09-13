@@ -1,0 +1,161 @@
+[palettes.callbot_docker_colorful]
+black = "#003b46"
+light-black = "#004f5e"
+dark-grey = "#006374"
+grey = "#007a8a"
+light-grey = "#0093a3"
+white = "#dce3e8"
+
+red = "#e6454b"
+green = "#85b57a"
+blue = "#3a82e6"
+yellow = "#ffcc66"
+orange = "#ff6a4b"
+purple = "#8c4de6"
+cyan = "#4da6a6"
+
+[palettes.gruvbox]
+black = "#003b46"
+light-black = "#004f5e"
+dark-grey = "#006374"
+grey = "#007a8a"
+light-grey = "#0093a3"
+white = "#dce3e8"
+
+red = "#fb4934"            # bright red
+green = "#b8bb26"          # bright green
+blue = "#83a598"           # tealish blue
+yellow = "#fabd2f"         # bright yellow
+orange = "#fe8019"         # warm orange
+purple = "#d3869b"         # light magenta
+cyan = "#8ec07c"           # aquamarine (greenish cyan)
+
+
+[palettes.solarized_dark]
+black = "#073642"          # base02
+light-black = "#002b36"    # base03 (darker)
+dark-grey = "#586e75"      # base01
+grey = "#657b83"           # base00 (light grey-blue)
+light-grey = "#839496"     # base0
+white = "#93a1a1"          # base1 (off-white)
+
+red = "#dc322f"            # solarized red
+green = "#859900"          # solarized green
+blue = "#268bd2"           # solarized blue
+yellow = "#b58900"         # solarized yellow
+orange = "#cb4b16"         # solarized orange
+purple = "#6c71c4"         # solarized violet
+cyan = "#2aa198"           # solarized cyan
+
+[palettes.monokai]
+black = "#272822"          # very dark grey (almost black)
+light-black = "#383830"    # dark grey
+dark-grey = "#49483e"      # medium dark grey
+grey = "#75715e"           # light grey
+light-grey = "#f8f8f2"     # near white
+white = "#f8f8f0"          # white
+
+red = "#f92672"            # bright pinkish red
+green = "#a6e22e"          # neon green
+blue = "#66d9ef"           # bright cyan blue
+yellow = "#e6db74"         # soft yellow
+orange = "#fd971f"         # vivid orange
+purple = "#ae81ff"         # soft lavender purple
+cyan = "#a1efe4"           # light cyan
+
+[palettes.gruvbox_light]
+black = "#fbf1c7"          # light background
+light-black = "#ebdbb2"    # soft beige (lighter than grey)
+dark-grey = "#d5c4a1"      # light brownish grey
+grey = "#bdae93"           # medium light grey
+light-grey = "#a89984"     # darker grey
+white = "#3c3836"          # dark brown (opposite of black in light mode)
+
+red = "#cc241d"            # bright red
+green = "#98971a"          # olive green
+blue = "#458588"           # dark tealish blue
+yellow = "#d79921"         # soft yellow
+orange = "#d65d0e"         # bright orange
+purple = "#b16286"         # purple magenta
+cyan = "#689d6a"           # muted cyan
+
+[palettes.cyberpunk]
+black = "#0d0d0d"          # deep black
+light-black = "#1a1a1a"    # dark grey (still very dark)
+dark-grey = "#2a2a2a"      # medium dark grey
+grey = "#4d4d4d"           # medium grey (neutral)
+light-grey = "#c0c0c0"     # bright grey (almost white)
+white = "#e0e0e0"          # full white (glow effect)
+
+red = "#ff004d"            # neon red
+green = "#00ff00"          # neon green
+blue = "#1e90ff"           # neon blue
+yellow = "#ffd700"         # neon yellow
+orange = "#ff6600"         # neon orange
+purple = "#bf00ff"         # neon purple
+cyan = "#00ffff"           # neon cyan
+
+[palettes.material_dark]
+black = "#263238"          # dark background
+light-black = "#2e3c43"    # dark grey (medium contrast)
+dark-grey = "#37474f"      # medium grey (cool tone)
+grey = "#546e7a"           # muted grey-blue
+light-grey = "#90a4ae"     # light grey (soft)
+white = "#eceff1"          # very light grey (almost white)
+
+red = "#ff5370"            # soft, desaturated red
+green = "#c3e88d"          # soft light green
+blue = "#82aaff"           # vibrant blue
+yellow = "#ffcb6b"         # soft yellow
+orange = "#f78c6c"         # orange-pink
+purple = "#c792ea"         # soft purple
+cyan = "#89ddff"           # light cyan
+
+[palettes.night_owl]
+black = "#011627"          # very dark blue
+light-black = "#1d3b53"    # dark blue-grey
+dark-grey = "#4b6479"      # medium grey with blue hue
+grey = "#7f8d9c"           # soft grey
+light-grey = "#d6deeb"     # light grey (almost white)
+white = "#ffffff"          # pure white
+
+red = "#ef5350"            # soft red
+green = "#22da6e"          # bright green
+blue = "#82aaff"           # vivid blue
+yellow = "#ffc600"         # bright yellow
+orange = "#f78c6c"         # orange-pink (muted)
+purple = "#c792ea"         # light purple
+cyan = "#21c7a8"           # teal cyan
+
+
+[palettes.andromeda_bordered_custom]
+black = "#0f111a"          # deep, almost-black background
+light-black = "#1a1c25"    # dark grey with more saturation
+dark-grey = "#262835"      # deep grey, slightly lighter than black
+grey = "#3b4050"           # medium grey with cool tone
+light-grey = "#6b7082"     # more vibrant grey (less pastel)
+white = "#bfc4d5"          # off-white, slightly darker for contrast
+
+red = "#ff5370"            # vivid pinkish red, more intense
+green = "#c3e88d"          # neon green, saturated
+blue = "#82aaff"           # bright blue, more vivid
+yellow = "#ffcb6b"         # warm yellow, with deeper tone
+orange = "#ff8b50"         # deeper orange, more saturated
+purple = "#c792ea"         # bright purple, made a bit richer
+cyan = "#89ddff"           # soft cyan, deeper and darker
+
+[palettes.brands]
+black = "#003b46"
+light-black = "#004f5e"
+dark-grey = "#006374"
+grey = "#007a8a"
+light-grey = "#0093a3"
+white = "#dce3e8"
+
+red = "#EF1A2D"            # ferrari
+green = "#24e41e"          # kawasaki
+blue = "#245e97"           # alpine
+yellow = "#fcd205"         # renault
+orange = "#FF8000"         # mclaren
+purple = "#b768a2"         # ?
+cyan = "#3dcfc2"           # bianchi
