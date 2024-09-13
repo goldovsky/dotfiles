@@ -1,15 +1,12 @@
-# DOTFILE_HOME_DIR= "~/configGoldovsky"
-
 # CUSTOM SCRIPTS
 ## make executable
-chmod +x ~/configGoldovsky/bash/scripts/weather.sh
-# chmod +x ./scripts/weather.sh
-chmod +x ~/configGoldovsky/bash/scripts/run.sh
-chmod +x ~/configGoldovsky/bash/scripts/git-create-branch.sh
+chmod +x ~/.config/bash/scripts/weather.sh
+chmod +x ~/.config/bash/scripts/run.sh
+chmod +x ~/.config/bash/scripts/git-create-branch.sh
 
-source ~/configGoldovsky/bash/scripts/runAutoCompletion.sh
-alias run="~/configGoldovsky/bash/scripts/./run.sh"
-alias gcb="sh ~/configGoldovsky/bash/scripts/git-create-branch.sh"
+source ~/.config/bash/scripts/runAutoCompletion.sh
+alias run="~/.config/bash/scripts/./run.sh"
+alias gcb="sh ~/.config/bash/scripts/git-create-branch.sh"
 
 alias sudoidea="sudo /snap/bin/intellij-idea-community"
 
@@ -26,14 +23,14 @@ alias la="ls -la"
 
 # Weather
 alias wttr="curl wttr.in"
-alias weather=". ~/configGoldovsky/bash/scripts/weather.sh"
+alias weather=". ~/.config/bash/scripts/weather.sh"
 
 # Edit
 # note: either do a editconf script, or one to simlink everything
-alias vimac="vim ~/.config/alacritty/alacritty.yml"
-alias vimbrc="vim ~/.bashrc"
-alias vimbrca="vim ~/.bashrc_aliases"
-alias bat="batcat" # https://github.com/sharkdp/bat
+# alias vimac="vim ~/.config/alacritty/alacritty.yml"
+# alias vimbrc="vim ~/.bashrc"
+# alias vimbrca="vim ~/.bashrc_aliases"
+# alias bat="batcat" # https://github.com/sharkdp/bat
 
 # GIT
 alias gpr="git pull --rebase"
@@ -51,5 +48,6 @@ alias gdob="git branch | grep -v ^* | xargs git branch -D" # delete all local br
 # reload tmux config
 alias rtmux="tmux source-file ~/.tmux.conf"
 # starship
-export STARSHIP_CONFIG=~/configGoldovsky/starship/starship.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
+
