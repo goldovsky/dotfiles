@@ -15,6 +15,7 @@ _darcs
 \.gitignore
 \.gitmodules
 .config/alacritty/themes/
+vscode/
 
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files

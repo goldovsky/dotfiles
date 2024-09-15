@@ -1,0 +1,25 @@
+{
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Hack Nerd Font",
+    "editor.fontSize": 13,
+    "editor.wordWrap": "on",
+    "javascript.validate.enable": false,
+
+    "workbench.colorCustomizations": {
+        "statusBar.background" : "#1A1A1A",
+        "statusBar.noFolderBackground" : "#212121",
+        "statusBar.debuggingBackground": "#263238"
+    },
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "svg.preview.mode": "img",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.openRepositoryInParentFolders": "never",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "Andromeda Bordered",
+    "window.zoomLevel": 2,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "markiscodecoverage.searchCriteria": ".coverage/lcov*.info"
+}
