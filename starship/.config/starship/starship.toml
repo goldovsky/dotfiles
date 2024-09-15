@@ -35,7 +35,7 @@ $character\
 palette = "custom"
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R"
 style = "fg:white bg:black"
 format = '[$time - ]($style)' # 
@@ -52,7 +52,7 @@ format = "[$output ]($style)"
 show_always = true
 style_user = "bold bg:light-black fg:white"
 style_root = "bold bg:light-black fg:white"
-format = "[  GDY ]($style)" # $user
+format = "[  goldovsky ]($style)" # $user
 
 [container]
 disabled = false
@@ -60,7 +60,7 @@ style = "bg:light-black fg:white"
 format = "[  ]($style)"
 
 [os]
-disabled = false
+disabled = true
 style = "bg:dark-grey fg:white"
 format = "[ $symbol ]($style)"
 
@@ -96,7 +96,7 @@ success_symbol = "[❯](blue bold)[❯](white bold)[❯](red bold)"
 error_symbol = '[](bold red bold)'
 
 [directory]
-style = "fg:black bg:yellow"
+style = "bold fg:black bg:yellow"
 read_only = " "
 truncation_length = 10
 format = '[  $path$read_only ]($style)'
