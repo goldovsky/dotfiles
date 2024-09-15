@@ -4,44 +4,18 @@
 # | |_| | |_| | |___| |_| | |_| |\ V /  ___) | . \   | |  
 #  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
 
-# format = """
-# [](fg:light-black)\
-# $custom\
-# [](fg:light-black bg:dark-grey)\
-# [](fg:dark-grey bg:grey)\
-# [](fg:grey bg:light-grey)\
-# [](fg:light-grey bg:black)\
-# $os\
-# [](fg:black bg:red)\
-# $container\
-# [](fg:red bg:orange)\
-# $username\
-# [](fg:orange bg:yellow)\
-# $directory\
-# [](fg:yellow bg:green)\
-# $git_state$git_status$git_metrics\
-# [](fg:green bg:cyan)\
-# [](fg:cyan bg:blue)\
-# [](fg:blue bg:purple)\
-# [](fg:purple)\
-# $fill\
-# $cmd_duration\
-# $git_branch\
-# $line_break\
-# $character\
-# """
-
 format = """
-[](fg:light-black)\
-[](fg:light-black bg:dark-grey)\
-[](fg:dark-grey bg:grey)\
-[](fg:grey bg:light-grey)\
-[](fg:light-grey bg:black)\
-$os\
-[](fg:black bg:red)\
-$container\
-[](fg:red bg:orange)\
+[](fg:black)\
+$time\
+$custom\
+[](fg:black bg:light-black)\
 $username\
+$container\
+[](fg:light-black bg:dark-grey)\
+$os\
+[](fg:dark-grey bg:black)\
+[](fg:black bg:red)\
+[](fg:red bg:orange)\
 [](fg:orange bg:yellow)\
 $directory\
 [](fg:yellow bg:green)\
@@ -52,43 +26,43 @@ $git_state$git_status$git_metrics\
 [](fg:purple)\
 $fill\
 $cmd_duration\
-[](fg:grey)\
-$time\
-[](fg:grey bg:light-black)\
-$custom\
-[](fg:light-black)\
 $git_branch\
 $line_break\
 $character\
 """
+
 
 palette = "custom"
 
 [time]
 disabled = false
 time_format = "%R"
-style = "fg:black bg:grey"
-format = '[ $time]($style)'
+style = "fg:white bg:black"
+format = '[$time - ]($style)' # 
 
-[fill]
-symbol = " "
+# NOTE : move weather and time into tmux ?
+[custom.weather]
+command = "~/.config/bash/scripts/weather.sh"
+ignore_timeout = true
+when = true
+style = "fg:white bg:black"
+format = "[$output ]($style)"
 
-[cmd_duration]
-format = "took ~[$duration](bold white)"
-
-[character]
-success_symbol = "[❯](blue bold)[❯](white bold)[❯](red bold)"
-error_symbol = '[](bold red bold)'
+[username]
+show_always = true
+style_user = "bold bg:light-black fg:white"
+style_root = "bold bg:light-black fg:white"
+format = "[  GDY ]($style)" # $user
 
 [container]
 disabled = false
-style = "bg:red fg:white"
+style = "bg:light-black fg:white"
 format = "[  ]($style)"
 
 [os]
 disabled = false
-style = "bg:black fg:white"
-format = "[ $symbol ]($style)"
+style = "bg:dark-grey fg:white"
+format = "[ $symbol ]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -111,11 +85,15 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
-[username]
-show_always = true
-style_user = "bold bg:orange fg:black"
-style_root = "bold bg:orange fg:black"
-format = "[  $user ]($style)"
+[fill]
+symbol = " "
+
+[cmd_duration]
+format = "took ~[$duration](bold white)"
+
+[character]
+success_symbol = "[❯](blue bold)[❯](white bold)[❯](red bold)"
+error_symbol = '[](bold red bold)'
 
 [directory]
 style = "fg:black bg:yellow"
@@ -134,16 +112,14 @@ format = '[  $path$read_only ]($style)'
 "Guitar" = "󰋅 "
 
 [git_branch]
-# round :  
-# arrow :  
-symbol = " " #   󰊤   󰮠    🌱  
-# format = "\n [ $symbol $branch ](bold light-grey)"
-# chevron light background
-# format = "\n [](fg:black)[ $symbol ](bold fg:white bg:black)[](fg:black bg:light-grey)[ $branch ](italic bold fg:black bg:light-grey)[](fg:light-grey)"
-# round empty green
-format = "\n [](fg:green)[$symbol ](bold fg:black bg:green)[](fg:green)[ $branch ](italic bold white)"
-# round empty dark
-# format = "\n [](fg:dark-grey)[$symbol ](bold fg:white bg:dark-grey)[](fg:dark-grey)[ $branch ](italic bold white)"
+symbol = "" #   󰊤   󰮠    🌱  
+format = """
+\n [](fg:black)[ ](bold fg:white bg:black)\
+[](fg:black bg:light-black)\
+[ $symbol ](bold fg:white bg:light-black)\
+[](fg:light-black)\
+[ $branch ](italic white)"""
+
 
 [git_status]
 format = "[$all_status$ahead_behind]($style)"
@@ -158,14 +134,6 @@ renamed = " 🔄$count "
 untracked = " ❓$count "
 style = "bold fg:black bg:green"
 
-# NOTE : move weather and time into tmux ?
-[custom.weather]
-command = "~/.config/bash/scripts/weather.sh"
-ignore_timeout = true
-when = true
-style = "fg:white bg:light-black"
-format = "[$output]($style)"
-
 # gruvbox
 [palettes.custom]
 black = "#003b46"
@@ -175,11 +143,10 @@ grey = "#007a8a"
 light-grey = "#0093a3"
 white = "#dce3e8"
 
-red = "#fb4934"            # bright red
-green = "#b8bb26"          # bright green
-blue = "#83a598"           # tealish blue
-yellow = "#fabd2f"         # bright yellow
-orange = "#fe8019"         # warm orange
-purple = "#d3869b"         # light magenta
-cyan = "#8ec07c"           # aquamarine (greenish cyan)
-
+red = "#fb4934"
+green = "#b8bb26"
+blue = "#83a598"
+yellow = "#fabd2f"
+orange = "#fe8019"
+purple = "#d3869b"
+cyan = "#8ec07c"
