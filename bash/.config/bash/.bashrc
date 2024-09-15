@@ -20,6 +20,8 @@ alias kill3000="fuser -k 3000/tcp"
 # Navigation
 alias ll="ls -1"
 alias la="ls -la"
+alias c="clear"
+alias e="exit"
 
 # Tools
 alias bat="batcat"
@@ -41,7 +43,6 @@ alias gpr="git pull --rebase"
 alias grbd="git pull origin develop --rebase"
 ## "git delete other branches"
 alias gdob="git branch | grep -v ^* | xargs git branch -D" # delete all local branches except current one
-
 ## same as above but allow to give a list for a partial match
 # keep_list="master 2247"; git branch | grep -v ^* | grep -Ev "$(echo $keep_list | sed -e 's/[[:blank:]]/|/g')" | xargs -n 1 git branch -D
 
@@ -56,7 +57,7 @@ alias rtmux="tmux source-file ~/.tmux.conf"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 ## Atuin
-# . "$HOME/.atuin/bin/env"
-# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-# eval "$(atuin init bash)"
+. "$HOME/.atuin/bin/env"
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
 

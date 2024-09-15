@@ -6,41 +6,26 @@
 
 format = """
 [](fg:black)\
-$time\
 $custom\
+$time\
 [](fg:black bg:light-black)\
 $username\
 $container\
-[](fg:light-black bg:dark-grey)\
-$os\
-[](fg:dark-grey bg:black)\
-[](fg:black bg:red)\
-[](fg:red bg:orange)\
-[](fg:orange bg:yellow)\
+[](fg:light-black bg:black)\
+[](fg:black bg:yellow)\
 $directory\
 [](fg:yellow bg:green)\
 $git_state$git_status$git_metrics\
 [](fg:green bg:cyan)\
-[](fg:cyan bg:blue)\
-[](fg:blue bg:purple)\
-[](fg:purple)\
+[](fg:cyan)\
 $fill\
 $cmd_duration\
 $git_branch\
 $line_break\
 $character\
 """
+palette = "gruvbox"
 
-
-palette = "custom"
-
-[time]
-disabled = true
-time_format = "%R"
-style = "fg:white bg:black"
-format = '[$time - ]($style)' # 
-
-# NOTE : move weather and time into tmux ?
 [custom.weather]
 command = "~/.config/bash/scripts/weather.sh"
 ignore_timeout = true
@@ -48,78 +33,37 @@ when = true
 style = "fg:white bg:black"
 format = "[$output ]($style)"
 
+[time]
+disabled = true
+time_format = "%R"
+style = "fg:white bg:black"
+format = '[| $time ]($style)' # 
+
 [username]
 show_always = true
 style_user = "bold bg:light-black fg:white"
 style_root = "bold bg:light-black fg:white"
-format = "[  goldovsky ]($style)" # $user
+format = "[   goldovsky ]($style)" # $user
 
 [container]
 disabled = false
 style = "bg:light-black fg:white"
 format = "[  ]($style)"
 
-[os]
-disabled = true
-style = "bg:dark-grey fg:white"
-format = "[ $symbol ]($style)"
-
-[os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = ""
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-
-[fill]
-symbol = " "
-
-[cmd_duration]
-format = "took ~[$duration](bold white)"
-
-[character]
-success_symbol = "[❯](green bold)" # "[❯](blue bold)[❯](white bold)[❯](red bold)"
-error_symbol = '[](bold red bold)'
-
 [directory]
 style = "bold fg:black bg:yellow"
 read_only = " "
 truncation_length = 10
-format = '[  $path$read_only ]($style)'
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
-"Photography" = " "
-"Memories"= "󰟶 "
-"Guitar" = "󰋅 "
+format = '[   $path$read_only ]($style)'
 
 [git_branch]
-symbol = "" #   󰊤   󰮠    🌱  
+symbol = " " #   󰊤   󰮠    🌱  
 format = """
 \n [](fg:black)[ ](bold fg:white bg:black)\
 [](fg:black bg:light-black)\
 [ $symbol ](bold fg:white bg:light-black)\
 [](fg:light-black)\
 [ $branch ](italic white)"""
-
 
 [git_status]
 format = "[$all_status$ahead_behind]($style)"
@@ -134,8 +78,18 @@ renamed = " 🔄$count "
 untracked = " ❓$count "
 style = "bold fg:black bg:green"
 
+[fill]
+symbol = " "
+
+[cmd_duration]
+format = "took ~[$duration](bold white)"
+
+[character]
+success_symbol = "[❯](green bold)"
+error_symbol = '[](bold red bold)'
+
 # gruvbox
-[palettes.custom]
+[palettes.gruvbox]
 black = "#003b46"
 light-black = "#004f5e"
 dark-grey = "#006374"

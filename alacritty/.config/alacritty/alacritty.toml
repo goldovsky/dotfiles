@@ -9,9 +9,9 @@ multiplier = 3
 decorations = "None"
 
 [font]
-normal.family = "Hack Nerd Font"
+normal.family = "Iosevka Nerd Font"
 normal.style = "Regular"
-size = 13
+size = 14
 
 [cursor]
 style.blinking = "Always"

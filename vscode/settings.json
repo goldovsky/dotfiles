@@ -1,7 +1,7 @@
 {
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "Hack Nerd Font",
-    "editor.fontSize": 13,
+    "editor.fontFamily": "Iosevka Nerd Font",
+    "editor.fontSize": 14,
     "editor.wordWrap": "on",
     "javascript.validate.enable": false,
 
@@ -15,11 +15,11 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "git.openRepositoryInParentFolders": "never",
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "workbench.colorTheme": "Andromeda Bordered",
+    "workbench.colorTheme": "Catppuccin Mocha",
     "window.zoomLevel": 2,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     
-    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "terminal.integrated.fontFamily": "Iosevka Nerd Font",
     "markiscodecoverage.searchCriteria": ".coverage/lcov*.info"
 }

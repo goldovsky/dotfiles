@@ -9,9 +9,9 @@ window:
 background_opacity: 1
 
 font:
-    size: 12
+    size: 14
     normal:
-        family: Hack Nerd Font
+        family: Iosevka Nerd Font
         style: Regular
 
 # Colors (catppuccin-macchiato)
