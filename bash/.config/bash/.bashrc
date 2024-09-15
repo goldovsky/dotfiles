@@ -21,6 +21,9 @@ alias kill3000="fuser -k 3000/tcp"
 alias ll="ls -1"
 alias la="ls -la"
 
+# Tools
+alias bat="batcat"
+
 # Weather
 alias wttr="curl wttr.in"
 alias weather=". ~/.config/bash/scripts/weather.sh"
@@ -47,7 +50,13 @@ alias gdob="git branch | grep -v ^* | xargs git branch -D" # delete all local br
 # exec zsh
 # reload tmux config
 alias rtmux="tmux source-file ~/.tmux.conf"
+# Set up fzf key bindings and fuzzy completion
+# eval "$(fzf --bash)" #  need fzf 0.48.0 or later
 # starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
+## Atuin
+# . "$HOME/.atuin/bin/env"
+# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+# eval "$(atuin init bash)"
 

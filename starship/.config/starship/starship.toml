@@ -92,7 +92,7 @@ symbol = " "
 format = "took ~[$duration](bold white)"
 
 [character]
-success_symbol = "[❯](blue bold)[❯](white bold)[❯](red bold)"
+success_symbol = "[❯](green bold)" # "[❯](blue bold)[❯](white bold)[❯](red bold)"
 error_symbol = '[](bold red bold)'
 
 [directory]
