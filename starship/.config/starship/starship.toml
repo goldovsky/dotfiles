@@ -34,7 +34,7 @@ style = "fg:white bg:black"
 format = "[$output ]($style)"
 
 [time]
-disabled = true
+disabled = false
 time_format = "%R"
 style = "fg:white bg:black"
 format = '[| $time ]($style)' # 
@@ -66,16 +66,16 @@ format = """
 [ $branch ](italic white)"""
 
 [git_status]
-format = "[$all_status$ahead_behind]($style)"
-ahead = " ⇡$count "
-behind = " ⇣$count "
-deleted = " 🗑️$count "
-diverged = " ⚡$count "
-stashed = " 📦$count "
-modified = " ✏️$count "
-staged = "✔️ $count"
-renamed = " 🔄$count "
-untracked = " ❓$count "
+format = "[ $all_status$ahead_behind]($style)"
+ahead = " $count " #  ⇡
+behind = " $count " #   ⇣
+deleted = "󰧧$count " # 󰧧 󰆴 🗑️
+diverged = "⚡$count " # 󱐌 ⚡
+stashed = " $count " #  📦
+modified = " $count " # ✏️
+staged = " $count" # ✔️ 
+renamed = "󰑕 $count "
+untracked = " $count "
 style = "bold fg:black bg:green"
 
 [fill]

@@ -10,42 +10,54 @@ alias gcb="sh ~/.config/bash/scripts/git-create-branch.sh"
 
 alias sudoidea="sudo /snap/bin/intellij-idea-community"
 
-alias kill3000="fuser -k 3000/tcp"
-## give id of process on port 3000
-# sudo sudo lsof -t -i:3000
-## kill process of id 1234
-# sudo kill -9 1234
-# alias jj="pbpaste | jsonpp | pbcopy"
+# System
+alias killProcess="fuser -k $1/tcp"         # kill process running on $1
+alias whatProcess="sudo sudo lsof -t -i:$1" # give id of process on port $1 (ex:3000)
+alias killProcessId="sudo kill -9 $1"       # kill process of id $1 (ex:1234)
 
 # Navigation
-alias ll="ls -1"
-alias la="ls -la"
+alias ll="ls -1 --group-directories-first"
+# alias l="exa --icons --group-directories-first --color-scale"
+alias la="ls -la --group-directories-first"
+
+# Shortcuts
 alias c="clear"
 alias e="exit"
+alias q="exit"
+alias v="nvim"
+# alias vim="nvim"
+alias aliases="alias | fzf"
 
 # Tools
 alias bat="batcat"
+alias cat="batcat -pp"
+alias less='batcat --paging=always'
+
+# Youtube DDL
+# If you want a higher bitrate for youtube-dl extracted audio. 
+# youtube-dl -x --audio-format mp3 --audio-quality 320k  -o '%(title)s.%(ext)s' $url
+alias ytmp3='youtube-dl -ciw -o "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
+alias ytvid='youtube-dl -ciw --format mp4 -o "%(title)s.%(ext)s"'
 
 # Weather
-alias wttr="curl wttr.in"
+alias wttr="curl wttr.in" # /$1 ?
 alias weather=". ~/.config/bash/scripts/weather.sh"
 
-# Edit
-# note: either do a editconf script, or one to simlink everything
-# alias vimac="vim ~/.config/alacritty/alacritty.yml"
-# alias vimbrc="vim ~/.bashrc"
-# alias vimbrca="vim ~/.bashrc_aliases"
-# alias bat="batcat" # https://github.com/sharkdp/bat
-
 # GIT
-alias gpr="git pull --rebase"
-## "git rebase develop"
-alias grbd="git pull origin develop --rebase"
-## "git delete other branches"
-alias gdob="git branch | grep -v ^* | xargs git branch -D" # delete all local branches except current one
+## shortcuts
+alias g='git'
+alias gs="git status"
+alias gb="git branch"
+alias gl="git log --all --graph --decorate --oneline"
+alias gpullr="git pull --rebase"
+alias gp="git push origin HEAD"
+
+## actions
+alias gcbranch="git branch | grep {$1} | xargs git checkout"
+alias grbd="git pull origin develop --rebase"                  # "git rebase develop"
+alias gdob="git branch | grep -v ^* | xargs git branch -D"     # "git delete other branches", delete all local branches except current one
 ## same as above but allow to give a list for a partial match
 # keep_list="master 2247"; git branch | grep -v ^* | grep -Ev "$(echo $keep_list | sed -e 's/[[:blank:]]/|/g')" | xargs -n 1 git branch -D
-
 
 # To turn on ZSH by default
 # exec zsh
@@ -53,11 +65,15 @@ alias gdob="git branch | grep -v ^* | xargs git branch -D" # delete all local br
 alias rtmux="tmux source-file ~/.tmux.conf"
 # Set up fzf key bindings and fuzzy completion
 # eval "$(fzf --bash)" #  need fzf 0.48.0 or later
-# starship
+
+# Starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
-## Atuin
+
+# Atuin
 . "$HOME/.atuin/bin/env"
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash)"
 
+# Ideas
+# alias jj="pbpaste | jsonpp | pbcopy"

@@ -11,7 +11,7 @@ if [ -f "$CACHE_FILE" ] && [ "$(( $(date +%s) - $(stat -c %Y "$CACHE_FILE") ))" 
     echo "$cached_weather"
 else
     # Fetch the current weather using wttr.in (Condition + temperature)
-    weather=$(curl -s 'wttr.in/?format=%C+%t')
+    weather=$(curl -s 'wttr.in/Lille?format=%C+%t')
 
     # Extract the temperature
     temperature=$(echo "$weather" | grep -oE '[+-]?[0-9]+°C')
