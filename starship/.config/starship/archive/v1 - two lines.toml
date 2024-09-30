@@ -34,7 +34,7 @@ style = "fg:white bg:black"
 format = "[$output ]($style)"
 
 [time]
-disabled = true
+disabled = false
 time_format = "%R"
 style = "fg:white bg:black"
 format = '[| $time ]($style)' # 

@@ -2,6 +2,9 @@ window:
    padding:
            x: 35
            y: 15
+   dimensions:
+    columns: 120
+    lines: 30
    dynamic_padding: true
    title: Alacritty
    decorations: "none"

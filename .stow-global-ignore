@@ -15,6 +15,7 @@ _darcs
 \.gitignore
 \.gitmodules
 .config/alacritty/themes/
+.config/starship/archive/
 vscode/
 
 .+~          # emacs backup files
