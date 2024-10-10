@@ -1,0 +1,132 @@
+#   ____  ___  _     ____   _____     ______  _  ____   __
+#  / ___|/ _ \| |   |  _ \ / _ \ \   / / ___|| |/ /\ \ / /
+# | |  _| | | | |   | | | | | | \ \ / /\___ \| ' /  \ V / 
+# | |_| | |_| | |___| |_| | |_| |\ V /  ___) | . \   | |  
+#  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
+
+format = """
+[](fg:black)\
+${custom.weather}\
+$time\
+[](fg:black bg:light-black)\
+$username\
+$container\
+[](fg:light-black bg:black)\
+[](fg:black bg:yellow)\
+$directory\
+[](fg:yellow bg:cyan)\
+[](fg:cyan)\
+
+$fill\
+$cmd_duration \
+
+${custom.right_panel_git1}\
+$git_state\
+$git_status\
+$git_metrics\
+${custom.right_panel_git2}\
+$git_branch\
+${custom.right_panel_git3}\
+
+$line_break\
+$character\
+"""
+
+palette = "gruvbox"
+
+[custom.right_panel_git1]
+when = "git rev-parse --is-inside-work-tree"
+format = "[](fg:grey)"
+[custom.right_panel_git2]
+when = "git rev-parse --is-inside-work-tree"
+format = "[](fg:dark-grey bg:grey)"
+[custom.right_panel_git3]
+when = "git rev-parse --is-inside-work-tree"
+format = """
+[](fg:light-black bg:dark-grey)\
+[  ](bold fg:white bg:light-black)\
+[](fg:black bg:light-black)\
+[  ](bold fg:white bg:black)\
+[](fg:black)\
+"""
+
+[custom.weather]
+command = "~/.config/bash/scripts/weather.sh"
+ignore_timeout = true
+when = true
+style = "fg:white bg:black"
+format = "[$output ]($style)"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:white bg:black"
+format = '[| $time ]($style)' # 
+
+[username]
+show_always = true
+style_user = "bold bg:light-black fg:white"
+style_root = "bold bg:light-black fg:white"
+format = "[   goldovsky ]($style)" # $user
+
+[container]
+disabled = false
+style = "bg:light-black fg:white"
+format = "[  ]($style)"
+
+[directory]
+style = "bold fg:black bg:yellow"
+read_only = " "
+truncation_length = 10
+format = '[   $path$read_only ]($style)'
+
+[git_branch]
+symbol = " " #   󰊤   󰮠    🌱  
+format = "[ $branch ](italic fg:white bg:dark-grey)"
+truncation_length = 23
+truncation_symbol = ""
+
+[custom.short_git_branch]
+command = """ git rev-parse --abbrev-ref HEAD | awk -F'/' '{print $1 "/" gensub(/[^0-9]*/, "", "g", $2)}' """
+format = "[ $output ](italic fg:white bg:dark-grey)"
+when = """ git rev-parse --is-inside-work-tree """
+
+[git_status]
+format = "[ $all_status$ahead_behind]($style)"
+ahead = " $count " #  ⇡
+behind = " $count " #   ⇣
+deleted = "󰧧$count " # 󰧧 󰆴 🗑️
+diverged = "⚡$count " # 󱐌 ⚡
+stashed = " $count " #  📦
+modified = " $count " # ✏️
+staged = " $count" # ✔️ 
+renamed = "󰑕 $count "
+untracked = " $count "
+style = "bold fg:white bg:grey"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+format = "took ~[$duration](bold white)"
+
+[character]
+success_symbol = "[❯](green bold)"
+error_symbol = '[](bold red bold)'
+
+# gruvbox
+[palettes.gruvbox]
+black = "#003b46"
+light-black = "#004f5e"
+dark-grey = "#006374"
+grey = "#007a8a"
+light-grey = "#0093a3"
+white = "#dce3e8"
+
+red = "#fb4934"
+green = "#b8bb26"
+blue = "#83a598"
+yellow = "#fabd2f"
+orange = "#fe8019"
+purple = "#d3869b"
+cyan = "#8ec07c"

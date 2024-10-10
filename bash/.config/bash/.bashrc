@@ -23,6 +23,7 @@ alias la="ls -la --group-directories-first"
 # Shortcuts
 alias c="clear"
 alias e="exit"
+alias ff="fastfetch"
 alias q="exit"
 alias v="nvim"
 # alias vim="nvim"

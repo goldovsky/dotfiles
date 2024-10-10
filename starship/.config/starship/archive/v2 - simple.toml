@@ -8,16 +8,17 @@ format = """
 [](fg:black)\
 ${custom.weather}\
 $time\
-[](fg:black bg:dark-grey)\
+[](fg:black)\
 $directory\
-[](fg:dark-grey)\
 
-$cmd_duration \
 $fill\
-$git_metrics\
-$git_status\
-$git_state\
+$cmd_duration \
+
+
 $git_branch\
+$git_state\
+$git_status\
+$git_metrics\
 
 $line_break\
 $container\
@@ -34,7 +35,7 @@ style = "fg:white bg:black"
 format = "[$output ]($style)"
 
 [time]
-disabled = true
+disabled = false
 time_format = "%R"
 style = "fg:white bg:black"
 format = '[| $time ]($style)'
@@ -48,47 +49,39 @@ format = "[  ]($style)"
 symbol = " "
 
 [cmd_duration]
-format = " took ~[$duration](bold white)"
+format = "took ~[$duration](bold white)"
 
 [character]
 success_symbol = "[❯](green bold)"
 error_symbol = '[](bold red bold)'
 
 [directory]
-style = "bold fg:white bg:dark-grey"
+style = "bold fg:white"
 read_only = " "
 truncation_length = 10
 format = '[   $path$read_only ]($style)'
 
 
 [git_branch]
-symbol = "  " #   󰊤   󰮠    🌱  
-format = "[ [$branch](italic bold fg:light-grey) $symbol](bold fg:white)"
+symbol = "  " #   󰊤   󰮠    🌱  
+format = """
+\n\
+[  ]()\
+[ $symbol ](bold fg:white)\
+[ $branch ](italic yellow)"""
 
 [git_status]
-untracked = "[ ](yellow)"
-modified = "[ ](white)"
-staged = "[ ](green)"
-deleted = "[ ](red)" # 
-ahead = "[ ](yellow)"
-behind = "[ ](yellow)"
-diverged = "[󰦻 ](cyan)"
-conflicted = "[  ](red)"
-stashed = "[  ](yellow)"
-typechanged = ""
-renamed = "[󰣕 ](white)" # 󰣕 󱑻
-up_to_date = ""
-format = """
-$typechanged\
-$ahead_behind\
-$renamed\
-$untracked\
-$staged\
-$modified\
-$deleted\
-$conflicted\
-$stashed\
-"""
+format = "[$all_status$ahead_behind]($style)"
+ahead = " ⇡ $count "
+behind = " ⇣ $count "
+deleted = " 🗑️ $count "
+diverged = " ⚡ $count "
+stashed = " 📦 $count "
+modified = " ✏️ $count "
+staged = "✔️ $count"
+renamed = " 🔄 $count "
+untracked = " ❓ $count "
+style = "bold fg:white"
 
 # gruvbox
 [palettes.gruvbox]
