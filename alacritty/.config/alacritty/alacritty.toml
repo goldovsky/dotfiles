@@ -1,6 +1,6 @@
 [general]
 import = [
-  "~/git/dotfiles/alacritty/.config/alacritty/themes/catppuccin_macchiato.toml"
+  "~/git/dotfiles/alacritty/.config/alacritty/themes/ayu_dark.toml"
 ]
 
 [window]
@@ -14,9 +14,9 @@ opacity = 1.0
 startup_mode = "Maximized"
 
 [font]
-size = 15
+size = 14
 [font.normal]
-family = "Iosevka Nerd Font"
+family = "ZedMono Nerd Font"
 style = "Regular"
 
 [cursor]
