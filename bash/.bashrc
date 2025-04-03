@@ -7,3 +7,4 @@ fi
 if [ -f ~/.config/bash/.bashrc ]; then
     . ~/.config/bash/.bashrc
 fi
+export PATH=$HOME/.local/bin:$PATH

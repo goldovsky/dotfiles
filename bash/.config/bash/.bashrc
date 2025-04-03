@@ -33,6 +33,12 @@ alias aliases="alias | fzf"
 alias bat="batcat"
 alias cat="batcat -pp"
 alias less='batcat --paging=always'
+alias vm="virtualbox"
+alias lg="lazygit"
+alias fmr='/home/fvlb5625/git/code/testFormatedMessageScript/format_mr.sh'
+
+# IA
+alias codellama="ollama run codellama"
 
 # Youtube DDL
 # If you want a higher bitrate for youtube-dl extracted audio. 

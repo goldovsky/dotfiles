@@ -5,12 +5,12 @@
 #  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
 
 format = """
-[](fg:black)\
-${custom.weather}\
+[](fg:dark-cell)\
+$os\
 $time\
-[](fg:black bg:dark-grey)\
+[](fg:dark-cell bg:medium-cell)\
 $directory\
-[](fg:dark-grey)\
+[](fg:medium-cell)\
 
 $cmd_duration \
 $fill\
@@ -26,17 +26,51 @@ $character\
 
 palette = "gruvbox"
 
+[os]
+disabled = false
+style = "fg:white bg:dark-cell"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+style_user = "blue bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+# ${custom.weather}
 [custom.weather]
 command = "~/.config/bash/scripts/weather.sh"
 ignore_timeout = true
 when = true
-style = "fg:white bg:black"
+style = "fg:white bg:dark-cell"
 format = "[$output ]($style)"
 
 [time]
 disabled = true
 time_format = "%R"
-style = "fg:white bg:black"
+style = "fg:white bg:dark-cell"
 format = '[| $time ]($style)'
 
 [container]
@@ -55,7 +89,7 @@ success_symbol = "[❯](green bold)"
 error_symbol = '[](bold red bold)'
 
 [directory]
-style = "bold fg:white bg:dark-grey"
+style = "bold fg:white bg:medium-cell"
 read_only = " "
 truncation_length = 10
 format = '[   $path$read_only ]($style)'
@@ -63,7 +97,7 @@ format = '[   $path$read_only ]($style)'
 
 [git_branch]
 symbol = "  " #   󰊤   󰮠    🌱  
-format = "[ [$branch](italic bold fg:light-grey) $symbol](bold fg:white)"
+format = "[ [$branch](italic bold fg:light-cell) $symbol](bold fg:white)"
 
 [git_status]
 untracked = "[ ](yellow)"
@@ -92,6 +126,10 @@ $stashed\
 
 # gruvbox
 [palettes.gruvbox]
+dark-cell = "#003b46"
+medium-cell = "#006374"
+light-cell = "#0093a3"
+
 black = "#003b46"
 light-black = "#004f5e"
 dark-grey = "#006374"
@@ -106,3 +144,41 @@ yellow = "#fabd2f"
 orange = "#fe8019"
 purple = "#d3869b"
 cyan = "#8ec07c"
+
+[palettes.spacemeduse]
+dark-cell = "#1d2021"
+medium-cell = "#448484"
+light-cell = "#7BA67C"
+
+black = "#0f0f0f"
+dark-grey = "#1d2021"
+grey = "#3c3f41"
+light-grey = "#5c5e61"
+white = "#dce3e8"
+
+red = "#fe3e3e"
+green = "#7BA67C"
+blue = "#448484"
+yellow = "#fadb41"
+orange = "#D39C79"
+purple = "#ab47bc"
+cyan = "#79d69f"
+
+[palettes.catppuchinmachiato]
+dark-cell = "#363a4f"
+medium-cell = "#6e738d"
+light-cell = "#cad3f5"
+
+black = "#181926"
+dark-grey = "#363a4f"
+grey = "#6e738d"
+light-grey = "#a5adcb"
+white = "#cad3f5"
+
+red = "#ed8796"
+green = "#a6da95"
+blue = "#8aadf4"
+yellow = "#eed49f"
+orange = "#f5a97f"
+purple = "#c6a0f6"
+cyan = "#8bd5ca"
