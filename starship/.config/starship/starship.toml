@@ -4,20 +4,24 @@
 # | |_| | |_| | |___| |_| | |_| |\ V /  ___) | . \   | |  
 #  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
 
+# ${custom.weather}\
 format = """
 [](fg:dark-cell)\
 $os\
-$time\
+$username\
 [](fg:dark-cell bg:medium-cell)\
 $directory\
-[](fg:medium-cell)\
+[](fg:medium-cell bg:black)\
 
-$cmd_duration \
-$fill\
-$git_metrics\
-$git_status\
-$git_state\
 $git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+[](fg:black)\
+
+$fill\
+$cmd_duration\
+$time\
 
 $line_break\
 $container\
@@ -29,7 +33,7 @@ palette = "gruvbox"
 [os]
 disabled = false
 style = "fg:white bg:dark-cell"
-format = "[$symbol ]($style)"
+format = "[$symbol]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -53,11 +57,13 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [username]
-style_user = "blue bold"
-style_root = "red bold"
-format = "[$user]($style) "
 disabled = false
+format = "[    ](red bg:black)"
 show_always = true
+
+# style_user = "blue bold bg:dark-cell"
+# style_root = "red bold bg:dark-cell"
+# format = "[$user ]($style)"
 
 # ${custom.weather}
 [custom.weather]
@@ -68,10 +74,10 @@ style = "fg:white bg:dark-cell"
 format = "[$output ]($style)"
 
 [time]
-disabled = true
+disabled = false
 time_format = "%R"
-style = "fg:white bg:dark-cell"
-format = '[| $time ]($style)'
+style = "fg:white"
+format = '[ $time ]($style)'
 
 [container]
 disabled = false
@@ -82,11 +88,11 @@ format = "[  ]($style)"
 symbol = " "
 
 [cmd_duration]
-format = " took ~[$duration](bold white)"
+format = "[took ~[$duration](bold italic white)](italic) "
 
 [character]
-success_symbol = "[❯](green bold)"
-error_symbol = '[](bold red bold)'
+success_symbol = "[❯](green bold)" # ❯
+error_symbol = '[](bold red bold)' # 
 
 [directory]
 style = "bold fg:white bg:medium-cell"
@@ -96,32 +102,32 @@ format = '[   $path$read_only ]($style)'
 
 
 [git_branch]
-symbol = "  " #   󰊤   󰮠    🌱  
-format = "[ [$branch](italic bold fg:light-cell) $symbol](bold fg:white)"
+symbol = "" #   󰊤   󰮠    🌱   |  
+format = "[ [$symbol](red bg:black) [$branch ](italic bold fg:green bg:black)](bold fg:green bg:black)"
 
 [git_status]
-untracked = "[ ](yellow)"
-modified = "[ ](white)"
-staged = "[ ](green)"
-deleted = "[ ](red)" # 
-ahead = "[ ](yellow)"
-behind = "[ ](yellow)"
-diverged = "[󰦻 ](cyan)"
-conflicted = "[  ](red)"
-stashed = "[  ](yellow)"
+untracked = "[ ](yellow bg:black)"
+modified = "[ ](white bg:black)"
+staged = "[ ](green bg:black)"
+deleted = "[ ](red bg:black)" #  
+ahead = "[ ](yellow bg:black)"
+behind = "[ ](yellow bg:black)"
+diverged = "[󰦻 ](cyan bg:black)"
+conflicted = "[  ](red bg:black)"
+stashed = "[   ](yellow bg:black)"
 typechanged = ""
-renamed = "[󰣕 ](white)" # 󰣕 󱑻
+renamed = "[󰣕 ](white bg:black)" # 󰣕 󱑻
 up_to_date = ""
 format = """
-$typechanged\
-$ahead_behind\
-$renamed\
-$untracked\
-$staged\
-$modified\
-$deleted\
-$conflicted\
 $stashed\
+$conflicted\
+$deleted\
+$modified\
+$staged\
+$untracked\
+$renamed\
+$ahead_behind\
+$typechanged\
 """
 
 # gruvbox
@@ -182,3 +188,24 @@ yellow = "#eed49f"
 orange = "#f5a97f"
 purple = "#c6a0f6"
 cyan = "#8bd5ca"
+
+# kurzgesagt-inspired
+[palettes.kurzgesagt]
+dark-cell = "#1B1F36"       # dark cosmic navy
+medium-cell = "#2F3451"     # deep space purple
+light-cell = "#3F4569"      # muted lavender-blue
+
+black = "#1B1F36"           # same as dark-cell
+light-black = "#2F3451"     # same as medium-cell
+dark-grey = "#4D4E68"       # cooler grey
+grey = "#6C6F91"            # light lavender-grey
+light-grey = "#A2A5C3"      # soft pastel blue-grey
+white = "#F4F6FB"           # warm white
+
+red = "#FF6B6B"             # pastel red/pink
+green = "#A3F7BF"           # mint green
+blue = "#5ED0FA"            # bright sky blue
+yellow = "#FFE66D"          # warm sun yellow
+orange = "#FFA45B"          # soft orange
+purple = "#B28DFF"          # pastel violet
+cyan = "#4EF1E2"            # bright aqua
