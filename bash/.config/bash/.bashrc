@@ -1,3 +1,4 @@
+source ~/.config/bash/scripts/tools.sh
 # CUSTOM SCRIPTS
 ## make executable
 chmod +x ~/.config/bash/scripts/weather.sh

@@ -5,11 +5,12 @@
 #  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
 
 # ${custom.weather}\
+#  
 format = """
 [](fg:dark-cell)\
 $os\
 $username\
-[](fg:dark-cell bg:medium-cell)\
+[](fg:dark-cell bg:medium-cell)\
 $directory\
 [](fg:medium-cell bg:black)\
 
@@ -17,7 +18,7 @@ $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-[](fg:black)\
+[](fg:black)\
 
 $fill\
 $cmd_duration\

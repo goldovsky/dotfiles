@@ -17,9 +17,9 @@ set -g @plugin 'tmux-plugins/tpm'
 # set -g @catppuccin_window_status_style "rounded"
 # # leave this unset to let applications set the window title
 # set -g @catppuccin_window_default_text " #W"
-# set -g @catppuccin_window_current_text " #W"
-# set -g @catppuccin_window_status "icon"
-# set -g @catppuccin_window_current_background "#{@thm_mauve}"
+set -g @catppuccin_window_current_text " #W"
+set -g @catppuccin_window_status "icon"
+set -g @catppuccin_window_current_background "#{@thm_mauve}"
 
 # Load catppuccin
 # run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
