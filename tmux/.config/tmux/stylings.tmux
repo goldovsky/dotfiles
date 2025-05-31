@@ -14,12 +14,15 @@ set -g status-fg '#dce3e8'
 set -g status-left '#[fg=#b8bb26,bg=#1f2430]#[fg=#181926,bg=#b8bb26,bold] #S #[fg=#b8bb26,bg=#003b46,nobold]'
 set -g status-right '#[fg=#006374,bg=#003b46]#[fg=#dce3e8,bg=#006374] %Y-%m-%d #[fg=#006374,bg=#0093a3]#[fg=#dce3e8,bg=#0093a3] %R #[fg=#0093a3,bg=#1f2430]'
 
-# Active window style
-setw -g window-status-current-format '#[fg=#fe8019,bold] #I:#W '
-setw -g window-status-format '#[fg=#dce3e8] #I:#W '
-
 # Catppuccin Theme
 set -g @catppuccin_flavor 'macchiato'
 set -g @catppuccin_window_status_style 'slanted' # rounded
 set -g @catppuccin_status_connect_separator "no"
 set -g @catppuccin_directory_text "#{pane_current_path}"
+set -g @catppuccin_window_default_text " #{window_name}"
+# set -g @catppuccin_window_current_fill "all"
+
+# Active window style
+setw -g window-status-current-format '#[fg=#fe8019,bold] #I:#W '
+# Inactive window style
+setw -g window-status-format '#[fg=#dce3e8] #I:#W '
