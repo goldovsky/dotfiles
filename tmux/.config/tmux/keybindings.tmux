@@ -19,5 +19,5 @@ bind C-v run "tmux set-buffer $(xclip -o -sel clip); tmux paste-buffer"
 
 # split window
 bind v split-window -v # vertical split
-bind _ split-window -v # vertical split
+bind - split-window -v # vertical split
 bind | split-window -h # horizontal split
