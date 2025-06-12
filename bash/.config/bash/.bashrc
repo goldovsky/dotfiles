@@ -26,7 +26,7 @@ alias c="clear"
 alias e="exit"
 alias ff="fastfetch"
 alias q="exit"
-alias v="nvim"
+# alias v="nvim"
 # alias vim="nvim"
 alias aliases="alias | fzf"
 
@@ -48,7 +48,7 @@ alias ytmp3='youtube-dl -ciw -o "%(title)s.%(ext)s" --extract-audio --audio-form
 alias ytvid='youtube-dl -ciw --format mp4 -o "%(title)s.%(ext)s"'
 
 # Weather
-alias wttr="curl wttr.in" # /$1 ?
+alias wttr="curl wttr.in/roubaix" # /$1 ?
 alias weather=". ~/.config/bash/scripts/weather.sh"
 
 # GIT
@@ -85,3 +85,5 @@ eval "$(atuin init bash)"
 
 # Ideas
 # alias jj="pbpaste | jsonpp | pbcopy"
+
+export BAT_CONFIG_PATH="/~/.config/bash/bat/bat.conf"
