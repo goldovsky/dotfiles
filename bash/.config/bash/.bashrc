@@ -32,7 +32,7 @@ alias aliases="alias | fzf"
 
 # Tools
 alias bat="batcat"
-alias cat="batcat -pp"
+alias cat="batcat -pp -n"
 alias less='batcat --paging=always'
 alias vm="virtualbox"
 alias lg="lazygit"
