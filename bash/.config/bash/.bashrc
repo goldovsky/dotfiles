@@ -36,7 +36,7 @@ alias cat="batcat -pp -n"
 alias less='batcat --paging=always'
 alias vm="virtualbox"
 alias lg="lazygit"
-alias fmr='/home/fvlb5625/git/code/testFormatedMessageScript/format_mr.sh'
+alias fmr='/home/fvlb5625/git/sandbox/scripts/formatMergeRequest.sh'
 
 # IA
 alias codellama="ollama run codellama"

@@ -28,7 +28,7 @@ $container\
 $character\
 """
 # gruvbox | spacemeduse | catppuchinmachiato | kurzgesagt
-palette = "gruvbox"
+palette = "gruvboxModified"
 
 [os]
 disabled = false
@@ -133,6 +133,26 @@ $typechanged\
 
 # gruvbox
 [palettes.gruvbox]
+user-cell = "#282828"
+directory-cell = "#3c3836"
+git-cell = "#282828"
+
+black = "#282828"
+light-black = "#3c3836"
+dark-grey = "#504945"
+grey = "#665c54"
+light-grey = "#7c6f64"
+white = "#fbf1c7"
+
+red = "#fb4934"
+green = "#b8bb26"
+blue = "#83a598"
+yellow = "#fabd2f"
+orange = "#fe8019"
+purple = "#d3869b"
+cyan = "#8ec07c"
+
+[palettes.gruvboxModified]
 user-cell = "#003b46"
 directory-cell = "#006374"
 git-cell = "#003b46"
