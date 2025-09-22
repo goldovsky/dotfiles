@@ -5,8 +5,8 @@
 #  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
 
 # ${custom.weather}\
+# [](fg:user-cell)\
 format = """
-[](fg:user-cell)\
 $os\
 $username\
 [](fg:user-cell bg:directory-cell)\
@@ -33,7 +33,7 @@ palette = "gruvboxModified"
 [os]
 disabled = false
 style = "fg:white bg:user-cell"
-format = "[$symbol]($style)"
+format = "[ $symbol]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -92,8 +92,8 @@ symbol = " "
 format = "[took ~[$duration](bold italic white)](italic) "
 
 [character]
-success_symbol = "[❯](green bold)" # ❯
-error_symbol = '[](bold red bold)' # 
+success_symbol = "[ ❯](green bold)" # ❯
+error_symbol = '[ ](bold red bold)' # 
 
 [directory]
 style = "bold fg:white bg:directory-cell"

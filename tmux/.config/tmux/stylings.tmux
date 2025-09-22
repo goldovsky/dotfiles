@@ -14,7 +14,7 @@ set -g status on
 set -g status-bg '#282828'
 
 # Unicode segments
-set -g status-left '#[fg=#fe8019,bg=#282828]#[fg=#dce3e8,bg=#fe8019,bold] #S#[fg=#fe8019,bg=#003b46,nobold]'
+set -g status-left '#[fg=#dce3e8,bg=#fe8019,bold] #S#[fg=#fe8019,bg=#282828,nobold]'
 set -g status-right ''
 
 # Active window style
