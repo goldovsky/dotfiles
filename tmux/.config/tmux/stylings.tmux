@@ -1,5 +1,6 @@
 #### --- Status Bar Styling --- ####
-set -g status-position top
+set -g status-position bottom
+# set -g status-position top
 set -g status-interval 5
 set -g status-justify right
 set -g status-left-length 100
@@ -9,8 +10,8 @@ set -g status on
 # Gruvbox dark background (blends with terminal theme)
 set -g status-bg '#282828'
 
-# Status left: session name with slanted separator
-set -g status-left '#[fg=#282828,bg=#fe8019,bold]  #S #[fg=#fe8019,bg=#282828,nobold] '
+# Status left: arrow-shaped badge (green, matching active window)
+set -g status-left '#[fg=#b8bb26,bold] #S#[nobold]  '
 
 # Status right: empty
 set -g status-right ''
