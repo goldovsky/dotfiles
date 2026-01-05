@@ -8,3 +8,6 @@ if [ -f ~/.config/bash/.bashrc ]; then
     . ~/.config/bash/.bashrc
 fi
 export PATH=$HOME/.local/bin:$PATH
+
+# opencode
+export PATH=/home/fvlb5625/.opencode/bin:$PATH

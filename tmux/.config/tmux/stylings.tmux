@@ -1,25 +1,33 @@
-# Catppuccin Theme
-set -g @catppuccin_flavor 'macchiato'
-set -g @catppuccin_window_status_style 'rounded'
-
 #### --- Status Bar Styling --- ####
-set -g status-position top # set-option -g status-position top
+set -g status-position top
 set -g status-interval 5
 set -g status-justify right
 set -g status-left-length 100
 set -g status-right-length 100
 set -g status on
 
-# Gruvbox colors (use same palette as Starship)
+# Gruvbox dark background (blends with terminal theme)
 set -g status-bg '#282828'
 
-# Unicode segments
-set -g status-left '#[fg=#dce3e8,bg=#fe8019,bold] #S#[fg=#fe8019,bg=#282828,nobold]'
+# Status left: session name with slanted separator
+set -g status-left '#[fg=#282828,bg=#fe8019,bold]  #S #[fg=#fe8019,bg=#282828,nobold] '
+
+# Status right: empty
 set -g status-right ''
 
-# Active window style
-set -g @catppuccin_window_current_text " #W"
-set -g @catppuccin_window_current_fill "all"
-set -g @catppuccin_window_current_background "#b8bb26"
-# Inactive window style
-set -g @catppuccin_window_default_text " #W"
+# Window status format
+set -g window-status-separator '  '
+
+# Inactive windows (just colored text, no box)
+set -g window-status-format '#[fg=#7c6f64]#I #W'
+
+# Active window (green accent, bold, no box)
+set -g window-status-current-format '#[fg=#b8bb26,bold]#I #W'
+
+# Pane borders
+set -g pane-border-style 'fg=#504945'
+set -g pane-active-border-style 'fg=#b8bb26'
+
+# Message styling
+set -g message-style 'fg=#dce3e8,bg=#504945'
+set -g message-command-style 'fg=#dce3e8,bg=#504945'
