@@ -4,12 +4,12 @@
 # | |_| | |_| | |___| |_| | |_| |\ V /  ___) | . \   | |  
 #  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
 
+# ${custom.lys}\
 format = """
 $time\
+$cmd_duration\
 $os\
 $username\
-${custom.lys}\
-$cmd_duration\
 [](fg:user-cell bg:directory-cell)\
 $directory\
 [](fg:directory-cell bg:git-cell)\
@@ -23,6 +23,7 @@ $git_metrics\
 $fill\
 
 $line_break\
+${custom.canada}\
 $container\
 $character\
 """
@@ -58,11 +59,16 @@ RedHatEnterprise = "󱄛"
 [custom.lys]
 when = true
 style = "fg:blue bg:user-cell"
-format = "[󱌃 ]($style)"
+format = "[  󱌃 ]($style)"
+
+[custom.canada]
+when = true
+style = "fg:red"
+format = "[  ]($style)"
 
 [username]
 disabled = false
-format = "[    ](red bg:user-cell)"
+format = "[ 󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆](fg:white bg:user-cell)"
 show_always = true
 
 
@@ -91,7 +97,7 @@ symbol = " "
 
 [cmd_duration]
 # 󰔚   󰔛  󱎫  󰄉  
-format = "[ 󰄉 ~[$duration](fg:white bg:user-cell bold italic)](bg:user-cell italic)"
+format = "[ 󰄉 ~[$duration](fg:white bg:user-cell bold italic) ](bg:user-cell italic)"
 
 [character]
 success_symbol = "[ ❯](green bold)" # ❯
