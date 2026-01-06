@@ -4,11 +4,11 @@
 # | |_| | |_| | |___| |_| | |_| |\ V /  ___) | . \   | |  
 #  \____|\___/|_____|____/ \___/  \_/  |____/|_|\_\  |_|  
 
-# ${custom.weather}\
-# [](fg:user-cell)\
 format = """
+$time\
 $os\
 $username\
+${custom.lys}\
 [](fg:user-cell bg:directory-cell)\
 $directory\
 [](fg:directory-cell bg:git-cell)\
@@ -21,7 +21,6 @@ $git_metrics\
 
 $fill\
 $cmd_duration\
-$time\
 
 $line_break\
 $container\
@@ -56,17 +55,19 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
+[custom.lys]
+when = true
+style = "fg:blue bg:user-cell"
+format = "[󱌃 ]($style)"
+
 [username]
 disabled = false
-# format = "[    ](red bg:black)"
-format = "[    ](red bg:user-cell)[󱌃 ](blue bg:user-cell)" ##003DA5
+format = "[    ](red bg:user-cell)"
 show_always = true
 
-# style_user = "blue bold bg:dark-cell"
-# style_root = "red bold bg:dark-cell"
-# format = "[$user ]($style)"
 
 # ${custom.weather}
+# [](fg:user-cell)\
 [custom.weather]
 command = "~/.config/bash/scripts/weather.sh"
 ignore_timeout = true
@@ -77,8 +78,8 @@ format = "[$output ]($style)"
 [time]
 disabled = false
 time_format = "%R"
-style = "fg:white"
-format = '[ $time ]($style)'
+style = "fg:white bg:user-cell"
+format = '[ $time ]($style bold)'
 
 [container]
 disabled = false
