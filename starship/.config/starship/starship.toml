@@ -6,10 +6,10 @@
 
 # ${custom.lys}\
 format = """
-$time\
-$cmd_duration\
 $os\
 $username\
+$time\
+$cmd_duration\
 [](fg:user-cell bg:directory-cell)\
 $directory\
 [](fg:directory-cell bg:git-cell)\
@@ -68,7 +68,7 @@ format = "[  ]($style)"
 
 [username]
 disabled = false
-format = "[ 󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆](fg:white bg:user-cell)"
+format = "[ 󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆](fg:white bg:user-cell bold)"
 show_always = true
 
 
@@ -85,7 +85,7 @@ format = "[$output ]($style)"
 disabled = false
 time_format = "%R"
 style = "fg:white bg:user-cell"
-format = '[ $time ]($style bold)'
+format = '[$time]($style)'
 
 [container]
 disabled = false
@@ -97,14 +97,14 @@ symbol = " "
 
 [cmd_duration]
 # 󰔚   󰔛  󱎫  󰄉  
-format = "[ 󰄉 ~[$duration](fg:white bg:user-cell bold italic) ](bg:user-cell italic)"
+format = "[󰄉 ~[$duration](fg:white bg:user-cell bold italic)](bg:user-cell italic)"
 
 [character]
 success_symbol = "[ ❯](green bold)" # ❯
 error_symbol = '[ ](bold red bold)' # 
 
 [directory]
-style = "bold fg:white bg:directory-cell"
+style = "fg:white bg:directory-cell"
 read_only = " "
 truncation_length = 10
 format = '[   $path$read_only ]($style)'
