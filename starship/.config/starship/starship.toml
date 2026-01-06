@@ -9,6 +9,7 @@ $time\
 $os\
 $username\
 ${custom.lys}\
+$cmd_duration\
 [](fg:user-cell bg:directory-cell)\
 $directory\
 [](fg:directory-cell bg:git-cell)\
@@ -20,7 +21,6 @@ $git_metrics\
 [](fg:git-cell)\
 
 $fill\
-$cmd_duration\
 
 $line_break\
 $container\
@@ -90,7 +90,8 @@ format = "[  ]($style)"
 symbol = " "
 
 [cmd_duration]
-format = "[took ~[$duration](bold italic white)](italic) "
+# 󰔚   󰔛  󱎫  󰄉  
+format = "[ 󰄉 ~[$duration](fg:white bg:user-cell bold italic)](bg:user-cell italic)"
 
 [character]
 success_symbol = "[ ❯](green bold)" # ❯
