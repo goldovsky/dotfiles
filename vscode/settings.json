@@ -1,42 +1,15 @@
 {
-    "workbench.colorTheme": "Catppuccin Mocha",
-    // "workbench.colorCustomizations": {
-    //     "statusBar.background": "#1A1A1A",
-    //     "statusBar.noFolderBackground": "#212121",
-    //     "statusBar.debuggingBackground": "#263238"
-    // },
-    // "workbench.colorCustomizations": {
-    //     "activityBar.activeBackground": "#1e1e2e", 
-    //     "activityBar.background": "#1e1e2e", 
-    //     "activityBar.foreground": "#cdd6f4", 
-    //     "activityBar.inactiveForeground": "#cdd6f499",
-    //     "activityBarBadge.background": "#b4befe", 
-    //     "activityBarBadge.foreground": "#1e1e2e",
-    //     "commandCenter.border": "#cdd6f499",
-    //     "sash.hoverBorder": "#1e1e2e", 
-    //     "statusBar.background": "#181825", 
-    //     "statusBar.foreground": "#cdd6f4", 
-    //     "statusBarItem.hoverBackground": "#1e1e2e",
-    //     "statusBarItem.remoteBackground": "#181825", 
-    //     "statusBarItem.remoteForeground": "#cdd6f4",
-    //     "titleBar.activeBackground": "#181825", 
-    //     "titleBar.activeForeground": "#cdd6f4", 
-    //     "titleBar.inactiveBackground": "#18182599",
-    //     "titleBar.inactiveForeground": "#cdd6f499",
-    // },
-
-    "workbench.iconTheme": "eq-material-theme-icons",
-    "workbench.layoutControl.enabled": true,
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "workbench.layoutControl.type": "both",
     // "workbench.statusBar.visible": false,
-    "workbench.sideBar.location": "left",
+    "workbench.sideBar.location": "right",
     "workbench.tree.indent": 15,
 
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "Iosevka Nerd Font",
+    "editor.fontFamily": "ZedMono Nerd Font", // Iosevka Nerd Font, ZedMono Nerd Font
     "editor.fontSize": 14,
     "editor.wordWrap": "on",
-    "editor.padding.top": 16,
+    "editor.padding.top": 8,
     "editor.cursorBlinking": "solid",
     "editor.stickyScroll.enabled": true,
     "editor.guides.indentation": true,
@@ -52,10 +25,8 @@
     "editor.suggestLineHeight": 30,
     "editor.linkedEditing": true,
     "editor.wordWrapColumn": 120,
-    
-    "breadcrumbs.enabled": true,
     "breadcrumbs.icons": true,
-    "breadcrumbs.filePath": "off",
+    "breadcrumbs.filePath": "on",
     
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
@@ -66,7 +37,7 @@
     "window.title": "${rootName}",
     "window.zoomLevel": 0.5,
     
-    "terminal.integrated.fontFamily": "Iosevka Nerd Font",
+    "terminal.integrated.fontFamily": "ZedMono Nerd Font",
     
     "javascript.validate.enable": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
@@ -77,7 +48,11 @@
     "git.openRepositoryInParentFolders": "never",
     "gitlens.launchpad.indicator.enabled": false,
     "markiscodecoverage.searchCriteria": ".coverage/lcov*.info",
-    "window.commandCenter": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "editor.scrollbar.verticalScrollbarSize": 7,
+    "files.associations": {
+        "*.hlx": "json"
+    },
 
     // "editor.tokenColorCustomizations": {
     //     "textMateRules": [
@@ -100,4 +75,48 @@
     //         }
     //     ]
     // },
+
+    "terminal.integrated.confirmOnExit": true,
+
+    /**
+    * LATEX
+    */
+    "latex-workshop.latex.tools": [
+    {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOC%"
+        ]
+    }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "XeLaTeX",
+            "tools": ["xelatex"]
+        }
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", 
+        "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", 
+        "*.gls", "*.fls", "*.log", "*.fdb_latexmk", "*.snm", "*.nav"
+    ],
+    "continue.showInlineTip": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "zenMode.showTabs": "none",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
+    "window.commandCenter": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "workbench.layoutControl.enabled": false
 }

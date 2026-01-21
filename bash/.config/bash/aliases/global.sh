@@ -1,7 +1,7 @@
 alias run="~/.config/bash/scripts/./run.sh"
 alias gcb="sh ~/.config/bash/scripts/git-create-branch.sh"
 
-alias sudoidea="sudo /snap/bin/intellij-idea-community"
+# alias sudoidea="sudo /snap/bin/intellij-idea-community"
 
 # System
 alias killProcess="fuser -k $1/tcp"         # kill process running on $1
@@ -16,10 +16,8 @@ alias la="ls -la --group-directories-first"
 # Shortcuts
 alias c="clear"
 alias e="exit"
-alias ff="fastfetch"
 alias q="exit"
-# alias v="nvim"
-# alias vim="nvim"
+alias ff="fastfetch"
 alias aliases="alias | fzf"
 
 # Tools
@@ -29,12 +27,17 @@ alias less='batcat --paging=always'
 alias vm="virtualbox"
 alias lg="lazygit"
 alias fmr='/home/fvlb5625/git/sandbox/scripts/formatMergeRequest.sh'
+# alias v="nvim"
+# alias vim="nvim"
+alias nv="nvim"
 
 # IA
 alias codellama="ollama run codellama"
+alias oc="opencode"
+alias Œ="opencode"
 
 # Youtube DDL
-# If you want a higher bitrate for youtube-dl extracted audio. 
+# If you want a higher bitrate for youtube-dl extracted audio.
 # youtube-dl -x --audio-format mp3 --audio-quality 320k  -o '%(title)s.%(ext)s' $url
 alias ytmp3='youtube-dl -ciw -o "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
 alias ytvid='youtube-dl -ciw --format mp4 -o "%(title)s.%(ext)s"'
@@ -54,8 +57,8 @@ alias gp="git push origin HEAD"
 
 ## actions
 alias gcbranch="git branch | grep {$1} | xargs git checkout"
-alias grbd="git pull origin develop --rebase"                  # "git rebase develop"
-alias gdob="git branch | grep -v ^* | xargs git branch -D"     # "git delete other branches", delete all local branches except current one
+alias grbd="git pull origin develop --rebase"              # "git rebase develop"
+alias gdob="git branch | grep -v ^* | xargs git branch -D" # "git delete other branches", delete all local branches except current one
 ## same as above but allow to give a list for a partial match
 # keep_list="master 2247"; git branch | grep -v ^* | grep -Ev "$(echo $keep_list | sed -e 's/[[:blank:]]/|/g')" | xargs -n 1 git branch -D
 
@@ -65,3 +68,32 @@ alias gdob="git branch | grep -v ^* | xargs git branch -D"     # "git delete oth
 alias rtmux="tmux source-file ~/.tmux.conf"
 # Set up fzf key bindings and fuzzy completion
 # eval "$(fzf --bash)" #  need fzf 0.48.0 or later
+
+# ICONS TO ME USED IN TMUX
+## TODO : move into a separate file
+ICON_IHM="  "
+export ICON_IHM
+ICON_API="󱂛 "
+export ICON_API
+ICON_CORE="  "
+export ICON_CORE
+ICON_CHAT="󰭹 "
+export ICON_CHAT
+ICON_DOCKER=" "
+export ICON_DOCKER
+ICON_MENU="󰍜 "
+export ICON_MENU
+ICON_APACHE="  "
+export ICON_APACHE
+ICON_SHELL="  "
+export ICON_SHELL
+ICON_GOLDOVSKY="󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆"
+export ICON_GOLDOVSKY
+ICON_CANADA=" "
+export ICON_CANADA
+ICON_LYS="󱌃 "
+export ICON_LYS
+ICON_DURATION="󰄉 "
+export ICON_DURATION
+ICON_FOLDER=" "
+export ICON_FOLDER

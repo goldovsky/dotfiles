@@ -1,0 +1,53 @@
+// Place your key bindings in this file to override the defaults
+[
+  // // Remove the keybinding just in case
+  {
+    "key": "ctrl+d",
+    "command": "-editor.action.addSelectionToNextFindMatch"
+  },
+  // Duplicate the line
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  // disable quit shortcut
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quit"
+  },
+  // simple log
+  {
+    "key": "ctrl+shift+l",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
+    }
+  },
+  // log complete object
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "console.dir(${TM_SELECTED_TEXT}$1, {depth: Infinity})$2;"
+    }
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:blameable'"
+  },
+  {
+    "command": "runCommands",
+    "key": "alt+b",
+    "args": {
+      "commands": [
+        "workbench.action.toggleStatusbarVisibility",
+        "toggle.workbench.layoutControl.enabled",
+        "breadcrumbs.toggle"
+      ]
+    }
+  },
+]
