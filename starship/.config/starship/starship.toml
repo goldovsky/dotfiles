@@ -16,6 +16,7 @@ $git_state\
 $git_status\
 $git_metrics\
 ${custom.startLine2}\
+${custom.testingIcon}\
 ${custom.canada}\
 ${custom.lys}\
 $username\
@@ -94,16 +95,20 @@ style = "fg:green"
 format = "\n[⎩]($style) "
 
 [custom.canada]
-when = true
+when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "fg:red"
 format = "[ ]($style)"
+
+[custom.testingIcon]
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+format = "[⚓]()"
 
 [custom.gitFolder]
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 # format = "[ ](orange)"
 # format = "[󰊢 ](red)"
-# format = "[ ](blue)"
-format = "[ ](red)"
+format = "[ ](blue)"
+# format = "[ ](red)"
 
 # symbol = " " #     󰊤      󰮠        🌱      |    
 
