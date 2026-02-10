@@ -78,6 +78,7 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [custom.lys]
+# ⚜
 when = false
 style = "fg:blue bg:user-cell"
 format = "[ 󱌃 ]($style)"
@@ -117,17 +118,19 @@ when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 format = "[ ](white)"
 
 [directory]
+# TODO put in blue in git repo
 style = "fg:white bold"
 read_only = " "
 truncation_length = 10
 format = '[ $path$read_only]($style)'
+
 
 [cmd_duration]
 format = " [󰄉 ~[$duration](fg:white italic)](italic)"
 
 [git_branch]
 symbol = "⸎ "
-format = " [$symbol](red) [$branch ](fg:red)"
+format = " [$symbol](red) [$branch ](fg:blue)"
 
 [git_status]
 untracked = "[ ](yellow)"
