@@ -203,3 +203,29 @@ yellow = "#f7eb95"   # yellow
 orange = "#ffb86c"   # derived warm accent (not in Material set)
 purple = "#6c71c4"   # bright.magenta
 cyan   = "#35434d"   # bright.cyan
+
+
+# Unicode Pair Ideas
+# - Corners / Brackets
+# - ⌜ ⌞ — light top-left / bottom-left corner (clean, typographic)
+# - ⟦ ⟧ — double square brackets (modern, compact)
+# - ❴ ❵ — ornamental curly braces (decorative)
+# - 〈 〉 — angle brackets (minimal, elegant)
+# - 「 」 — East Asian corner quotes (strong visual bind)
+# - Box / Line Corners
+# - ┌ └ — single-line box corners (classic terminal look)
+# - ╭ ╰ — rounded box corners (softer)
+# - ┏ ┗ — heavy/top-heavy corners (bold)
+# - ▛ ▙ — blocky, high-contrast corners (graphic)
+# - Arrows / Chevrons
+# - « » — guillemets (rail-binding feel)
+# - ‹ › — single guillemets (subtle)
+# - ⟵ ⟶ — long arrows (directional, modern)
+# - ↤ ↦ — left/right hooks (technical, distinctive)
+# - ⟨ ⟩ — angle pickets (mathematical / tidy)
+# - Decorative / Flourish
+# - ❦ ❧ — floral ornaments (elegant, decorative)
+# - ✦ ✧ — star-like (sparkle / accent)
+# - ☙ ☙ — pilcrow-like flourish (symmetrical)
+# - ❲ ❳ — thin ornamental brackets
+# - ﹛ ﹜ — small curly forms (compact curly)
