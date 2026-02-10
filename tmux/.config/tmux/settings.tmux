@@ -13,3 +13,7 @@ set -g history-limit 10000
 set -g base-index 1
 set -g pane-base-index 1
 set -g renumber-windows on  # keep numbering sequential
+
+# Rrestore copy/paste on ubuntu 24.04
+set -s set-clipboard external
+set -s copy-command 'xsel -i -b'
