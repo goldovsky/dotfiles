@@ -5,6 +5,9 @@ import = [
   "~/git/dotfiles/alacritty/.config/alacritty/themes/material_theme.toml"
 ]
 
+[terminal]
+shell = { program = "/bin/bash" }
+
 [window]
 # padding = { x = 35, y = 15 }
 dimensions = { columns = 120, lines = 30 }

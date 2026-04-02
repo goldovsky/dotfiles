@@ -97,3 +97,9 @@ ICON_DURATION="󰄉 "
 export ICON_DURATION
 ICON_FOLDER=" "
 export ICON_FOLDER
+ICON_NVIM=" "
+export ICON_NVIM
+ICON_CODE=" "
+export ICON_CODE
+ICON_GIT="⸎ "
+export ICON_GIT

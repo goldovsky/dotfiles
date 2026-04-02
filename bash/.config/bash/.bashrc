@@ -12,6 +12,9 @@ source ~/.config/bash/aliases/global.sh
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
+# Zoxide
+eval "$(zoxide init bash)"
+
 # Atuin
 if [ -f ~/.bash-preexec.sh ]; then
     . "$HOME/.atuin/bin/env"

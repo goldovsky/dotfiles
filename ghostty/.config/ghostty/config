@@ -2,10 +2,11 @@
 # all available config options and their default values.
 # https://ghostty.org/docs/config.
 
-# ghostty +list-themes
-theme = GruvboxDark
+command = /usr/bin/zsh
 
-shell-integration = zsh
+# ghostty +list-themes
+# theme = GruvboxDark
+
 confirm-close-surface = false
 
 # background-opacity = 0.80
@@ -20,4 +21,3 @@ window-padding-y = 0
 
 font-family = Zed Mono Nerd Font
 # font-size = 14
-
