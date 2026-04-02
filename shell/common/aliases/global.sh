@@ -1,5 +1,5 @@
-alias run="~/.config/bash/scripts/./run.sh"
-alias gcb="sh ~/.config/bash/scripts/git-create-branch.sh"
+alias run="~/.config/shell/common/scripts/./run.sh"
+alias gcb="sh ~/.config/shell/common/scripts/git-create-branch.sh"
 
 # alias sudoidea="sudo /snap/bin/intellij-idea-community"
 
@@ -44,7 +44,7 @@ alias ytvid='youtube-dl -ciw --format mp4 -o "%(title)s.%(ext)s"'
 
 # Weather
 alias wttr="curl wttr.in/roubaix" # /$1 ?
-alias weather=". ~/.config/bash/scripts/weather.sh"
+alias weather=". ~/.config/shell/common/scripts/weather.sh"
 
 # GIT
 ## shortcuts

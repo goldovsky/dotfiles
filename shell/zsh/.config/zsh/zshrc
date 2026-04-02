@@ -1,0 +1,18 @@
+source ~/.config/shell/common/env/path.sh
+source ~/.config/shell/common/aliases/global.sh
+source ~/.config/shell/common/scripts/tools.sh
+
+# CUSTOM SCRIPTS
+chmod +x ~/.config/shell/common/scripts/weather.sh
+chmod +x ~/.config/shell/common/scripts/run.sh
+chmod +x ~/.config/shell/common/scripts/git-create-branch.sh
+
+# Starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+# Atuin
+eval "$(atuin init zsh)"

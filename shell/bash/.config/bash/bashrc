@@ -1,0 +1,24 @@
+source ~/.config/shell/common/env/path.sh
+source ~/.config/shell/common/aliases/global.sh
+source ~/.config/shell/common/scripts/tools.sh
+
+# CUSTOM SCRIPTS
+chmod +x ~/.config/shell/common/scripts/weather.sh
+chmod +x ~/.config/shell/common/scripts/run.sh
+chmod +x ~/.config/shell/common/scripts/git-create-branch.sh
+
+source ~/.config/shell/common/scripts/runAutoCompletion.sh
+
+# Starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"
+
+# Zoxide
+eval "$(zoxide init bash)"
+
+# Atuin
+if [ -f ~/.bash-preexec.sh ]; then
+    . "$HOME/.atuin/bin/env"
+    [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+    eval "$(atuin init bash)"
+fi

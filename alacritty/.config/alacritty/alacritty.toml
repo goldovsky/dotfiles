@@ -6,7 +6,7 @@ import = [
 ]
 
 [terminal]
-shell = { program = "/bin/bash" }
+shell = { program = "/bin/bash", args = ["-l"] }
 
 [window]
 # padding = { x = 35, y = 15 }
