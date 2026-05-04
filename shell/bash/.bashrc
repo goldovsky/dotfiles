@@ -1,6 +1,6 @@
 # work aliases
-if [ -f ~/.config/shell/bash/.bashrc_work ]; then
-    . ~/.config/shell/bash/.bashrc_work
+if [ -f ~/.bashrc_work ]; then
+    . ~/.bashrc_work
 fi
 
 # load up personal bash
