@@ -51,6 +51,7 @@ alias weather=". ~/.config/shell/common/scripts/weather.sh"
 alias g='git'
 alias gs="git status"
 alias gb="git branch"
+gci() { git checkout $(git branch | fzf); }
 alias gl="git log --all --graph --decorate --oneline"
 alias gpullr="git pull --rebase"
 alias gp="git push origin HEAD"
