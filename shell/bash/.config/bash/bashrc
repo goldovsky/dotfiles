@@ -14,7 +14,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
 # Zoxide
-eval "$(zoxide init bash)"
+eval "$(zoxide init --cmd cd bash)"
 
 # Atuin
 if [ -f ~/.bash-preexec.sh ]; then
