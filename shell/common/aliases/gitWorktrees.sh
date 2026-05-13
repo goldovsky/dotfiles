@@ -3,7 +3,9 @@
 # Git Worktrees — Shell Functions
 # =============================================================================
 #
-# All worktrees are stored in: ~/git/worktrees/{repo-name}/{sanitized-branch}
+# Worktree location:
+#   Normal repo: ~/git/worktrees/{repo-name}/{sanitized-branch}
+#   Bare repo:   siblings to the bare directory (e.g. ../feature-X next to repo.git/)
 # Branch names are sanitized for folder use: "/" is replaced with "-"
 # Base branch is auto-detected (first of: develop, main, master)
 #
@@ -36,7 +38,13 @@ _gwt_repo_name() {
 }
 
 _gwt_base() {
-    echo "${GIT_WORKTREE_BASE}/$(_gwt_repo_name)"
+    if [[ "$(git rev-parse --is-bare-repository)" == "true" ]]; then
+        # Bare repo: worktrees as siblings to the bare directory
+        echo "$(cd "$(git rev-parse --git-dir)/.." && pwd -P)"
+    else
+        # Normal repo: central worktree location
+        echo "${GIT_WORKTREE_BASE}/$(_gwt_repo_name)"
+    fi
 }
 
 _gwt_sanitize() {
