@@ -1,3 +1,5 @@
+source ~/.config/shell/common/aliases/gitWorktrees.sh
+
 # GIT
 ## shortcuts
 alias g='git'
