@@ -39,10 +39,11 @@ _gwt_repo_name() {
 
 _gwt_base() {
     if [[ "$(git rev-parse --is-bare-repository)" == "true" ]]; then
-        # Bare repo: worktrees as siblings to the bare directory
-        echo "$(cd "$(git rev-parse --git-dir)/.." && pwd -P)"
+        local bare_dir
+        bare_dir=$(cd "$(git rev-parse --git-dir)" && pwd -P)
+        # Strip .git suffix to get the project folder name
+        echo "${bare_dir%.git}"
     else
-        # Normal repo: central worktree location
         echo "${GIT_WORKTREE_BASE}/$(_gwt_repo_name)"
     fi
 }
