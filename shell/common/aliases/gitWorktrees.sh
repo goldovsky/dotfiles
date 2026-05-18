@@ -77,18 +77,6 @@ gwl() {
     }' | (echo "NAME BRANCH COMMIT"; cat) | column -t
 }
 
-gwll() {
-    git worktree list | awk '{
-        path = $1
-        commit = $2
-        branch = $3
-        gsub(/[\[\]]/, "", branch)
-        n = split(path, parts, "/")
-        name = parts[n]
-        printf "%s\t%s\t%s\t%s\n", name, branch, commit, path
-    }' | (printf "NAME\tBRANCH\tCOMMIT\tPATH\n"; cat) | column -t -s $'\t'
-}
-
 gwa() {
     if [[ -z "$1" ]]; then
         echo "Usage: gaw <branch-name>"
