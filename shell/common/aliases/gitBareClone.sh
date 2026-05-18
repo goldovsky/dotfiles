@@ -63,10 +63,18 @@ gbclone() {
         return 1
     }
 
-    echo "Bare clone ready:"
-    echo "  Repo:     $(pwd)/$repo_name"
-    echo "  Bare:     $(pwd)/$repo_name/.bare"
-    echo "  Worktree: $(pwd)/$repo_name/$worktree_name (branch: $default_branch)"
+    local green='\033[0;32m'
+    local cyan='\033[0;36m'
+    local dim='\033[2m'
+    local reset='\033[0m'
+
+    echo ""
+    echo -e "${green}Bare clone ready${reset}"
+    echo -e "${dim}──────────────────────────────────────${reset}"
+    echo -e "  Repo:     ${cyan}$(pwd)/$repo_name${reset}"
+    echo -e "  Bare:     ${dim}$(pwd)/$repo_name/.bare${reset}"
+    echo -e "  Worktree: ${cyan}$worktree_name${reset} ${dim}(branch: $default_branch)${reset}"
+    echo ""
 
     cd "$repo_name/$worktree_name" || return 1
 }
