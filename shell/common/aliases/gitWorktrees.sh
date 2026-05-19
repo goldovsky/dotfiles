@@ -3,49 +3,37 @@
 # Git Worktrees — Shell Functions
 # =============================================================================
 #
-# Worktree location:
-#   Normal repo: ~/git/worktrees/{repo-name}/{sanitized-branch}
-#   Bare repo:   siblings to the bare directory (e.g. ../feature-X next to repo.git/)
+# Assumes the bare clone structure from gitBareClone.sh:
+#   <repo>/
+#   ├── .bare/                       # bare clone
+#   └── <branch>@<repo>/            # worktrees
+#
 # Branch names are sanitized for folder use: "/" is replaced with "-"
 # Base branch is auto-detected (first of: develop, main, master)
 #
 # USAGE
 # -----
 #   gwl            List worktrees (name, branch, commit)
-#   gwll           List worktrees with full path
 #   gwcd           Switch to a worktree (fzf)
 #   gwr            Remove a worktree (fzf, prevents removing current)
 #   gwa <branch>   Create new worktree + new branch from base
-#                   e.g. gaw feature/RCMTORCH-0101
+#                   e.g. gwa feature/RCMTORCH-0101
 #   gwab [branch]  Create worktree from existing remote branch (PR review)
 #                   Without arg: fzf picker from remote branches
 #
 # =============================================================================
 
-# --- Configuration -----------------------------------------------------------
-
-GIT_WORKTREE_BASE="${HOME}/git/worktrees"
-
 # --- Helpers -----------------------------------------------------------------
 
-_gwt_repo_name() {
-    local name
-    name=$(git remote get-url origin 2>/dev/null | sed 's|.*/||; s|\.git$||')
-    if [[ -z "$name" ]]; then
-        name=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
-    fi
-    echo "$name"
+_gwt_repo_root() {
+    local git_common_dir
+    git_common_dir=$(git rev-parse --git-common-dir 2>/dev/null) || return 1
+    # .bare is the common git dir; its parent is the repo root
+    dirname "$(cd "$git_common_dir" && pwd -P)"
 }
 
-_gwt_base() {
-    if [[ "$(git rev-parse --is-bare-repository)" == "true" ]]; then
-        local bare_dir
-        bare_dir=$(cd "$(git rev-parse --git-dir)" && pwd -P)
-        # Strip .git suffix to get the project folder name
-        echo "${bare_dir%.git}"
-    else
-        echo "${GIT_WORKTREE_BASE}/$(_gwt_repo_name)"
-    fi
+_gwt_repo_name() {
+    basename "$(_gwt_repo_root)"
 }
 
 _gwt_sanitize() {
@@ -61,6 +49,15 @@ _gwt_detect_base() {
     done
     echo "Error: no base branch found (looked for develop, main, master)" >&2
     return 1
+}
+
+_gwt_target() {
+    local branch="$1"
+    local sanitized
+    sanitized=$(_gwt_sanitize "$branch")
+    local repo_name
+    repo_name=$(_gwt_repo_name)
+    echo "$(_gwt_repo_root)/${sanitized}@${repo_name}"
 }
 
 # --- Functions ---------------------------------------------------------------
@@ -79,7 +76,7 @@ gwl() {
 
 gwa() {
     if [[ -z "$1" ]]; then
-        echo "Usage: gaw <branch-name>"
+        echo "Usage: gwa <branch-name>"
         echo "  Creates a new branch from the base branch (develop/main/master)"
         return 1
     fi
@@ -88,12 +85,8 @@ gwa() {
     local base
     base=$(_gwt_detect_base) || return 1
 
-    local sanitized
-    sanitized=$(_gwt_sanitize "$branch")
     local target
-    target="$(_gwt_base)/${sanitized}"
-
-    mkdir -p "$(_gwt_base)"
+    target=$(_gwt_target "$branch")
 
     git worktree add -b "$branch" "$target" "$base"
 
@@ -115,12 +108,8 @@ gwab() {
         fi
     fi
 
-    local sanitized
-    sanitized=$(_gwt_sanitize "$branch")
     local target
-    target="$(_gwt_base)/${sanitized}"
-
-    mkdir -p "$(_gwt_base)"
+    target=$(_gwt_target "$branch")
 
     git fetch origin "$branch" 2>/dev/null
     git worktree add "$target" "$branch"

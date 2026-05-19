@@ -7,7 +7,7 @@ alias g='git'
 alias gs="git status"
 alias gb="git branch"
 alias gl="git log --all --graph --decorate --oneline"
-alias gpullr="git pull --rebase"
+alias gpullr="git pull origin develop --rebase"
 alias gp="git push origin HEAD"
 
 ## actions
