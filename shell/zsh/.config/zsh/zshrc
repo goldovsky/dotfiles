@@ -5,7 +5,7 @@ source ~/.config/shell/common/scripts/tools.sh
 # CUSTOM SCRIPTS
 chmod +x ~/.config/shell/common/scripts/weather.sh
 chmod +x ~/.config/shell/common/scripts/run.sh
-chmod +x ~/.config/shell/common/scripts/git-create-branch.sh
+chmod +x ~/.config/shell/common/git/git-create-branch.sh
 
 # Starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml

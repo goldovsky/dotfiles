@@ -1,7 +1,7 @@
-source ~/.config/shell/common/aliases/git.sh
+source ~/.config/shell/common/git/git.sh
 
 alias run="~/.config/shell/common/scripts/./run.sh"
-alias gcb="sh ~/.config/shell/common/scripts/git-create-branch.sh"
+alias gcb="sh ~/.config/shell/common/git/git-create-branch.sh"
 
 # alias sudoidea="sudo /snap/bin/intellij-idea-community"
 
@@ -51,42 +51,8 @@ alias weather=". ~/.config/shell/common/scripts/weather.sh"
 
 # To turn on ZSH by default
 # exec zsh
-# reload tmux config
-alias rtmux="tmux source-file ~/.tmux.conf"
 # Set up fzf key bindings and fuzzy completion
 # eval "$(fzf --bash)" #  need fzf 0.48.0 or later
 
-# ICONS TO ME USED IN TMUX
-## TODO : move into a separate file
-ICON_IHM="  "
-export ICON_IHM
-ICON_API="󱂛 "
-export ICON_API
-ICON_CORE="  "
-export ICON_CORE
-ICON_CHAT="󰭹 "
-export ICON_CHAT
-ICON_DOCKER=" "
-export ICON_DOCKER
-ICON_MENU="󰍜 "
-export ICON_MENU
-ICON_APACHE="  "
-export ICON_APACHE
-ICON_SHELL="  "
-export ICON_SHELL
-ICON_GOLDOVSKY="󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆"
-export ICON_GOLDOVSKY
-ICON_CANADA=" "
-export ICON_CANADA
-ICON_LYS="󱌃 "
-export ICON_LYS
-ICON_DURATION="󰄉 "
-export ICON_DURATION
-ICON_FOLDER=" "
-export ICON_FOLDER
-ICON_NVIM=" "
-export ICON_NVIM
-ICON_CODE=" "
-export ICON_CODE
-ICON_GIT="⸎ "
-export ICON_GIT
+source ~/.config/shell/common/aliases/icons.sh
+source ~/.config/shell/common/scripts/tmuxInit.sh

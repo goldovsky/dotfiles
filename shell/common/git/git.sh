@@ -1,5 +1,5 @@
-source ~/.config/shell/common/aliases/gitWorktrees.sh
-source ~/.config/shell/common/aliases/gitBareClone.sh
+source ~/.config/shell/common/git/gitWorktrees.sh
+source ~/.config/shell/common/git/gitBareClone.sh
 
 # GIT
 ## shortcuts
