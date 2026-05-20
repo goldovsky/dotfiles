@@ -1,7 +1,8 @@
 source ~/.config/shell/common/git/git.sh
+source ~/.config/shell/common/aliases/icons.sh
+source ~/.config/shell/common/scripts/tmuxInit.sh
 
 alias run="~/.config/shell/common/scripts/./run.sh"
-alias gcb="sh ~/.config/shell/common/git/git-create-branch.sh"
 
 # alias sudoidea="sudo /snap/bin/intellij-idea-community"
 
@@ -27,7 +28,6 @@ alias bat="batcat"
 alias cat="batcat -pp -n"
 alias less='batcat --paging=always'
 alias vm="virtualbox"
-alias lg="lazygit"
 alias fmr='/home/fvlb5625/git/sandbox/scripts/formatMergeRequest.sh'
 # alias v="nvim"
 # alias vim="nvim"
@@ -53,6 +53,3 @@ alias weather=". ~/.config/shell/common/scripts/weather.sh"
 # exec zsh
 # Set up fzf key bindings and fuzzy completion
 # eval "$(fzf --bash)" #  need fzf 0.48.0 or later
-
-source ~/.config/shell/common/aliases/icons.sh
-source ~/.config/shell/common/scripts/tmuxInit.sh
