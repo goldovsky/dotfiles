@@ -54,11 +54,9 @@ gbclone() {
         return 1
     fi
 
-    # Create initial worktree (use absolute path to avoid ambiguity)
+    # Create initial worktree (use relative path for portability)
     local worktree_name="${default_branch}@${repo_name}"
-    local abs_worktree
-    abs_worktree="$(cd "$repo_name" && pwd -P)/$worktree_name"
-    git --git-dir="$(cd "$repo_name/.bare" && pwd -P)" worktree add "$abs_worktree" "$default_branch" || {
+    git -C "$repo_name/.bare" worktree add "../$worktree_name" "$default_branch" || {
         rm -rf "$repo_name"
         return 1
     }
