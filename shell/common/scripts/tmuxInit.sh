@@ -11,9 +11,9 @@ tmx() {
   done
   shift $((OPTIND - 1))
 
-  tmux new-session -d -s "$session_name"
+  tmux new-session -d -s "$session_name" -n "󰈸 "
 
-  local default_windows=("󰈸 " "󰒲 " "󰚩 ")
+  local default_windows=("󰒲 " "󰚩 ")
   for win in "${default_windows[@]}"; do
     tmux new-window -t "$session_name" -n "$win"
   done
@@ -23,7 +23,6 @@ tmx() {
   done
 
   tmux set-option -g allow-rename off
-  tmux kill-window -t "$session_name:0"
   tmux select-window -t "$session_name:󰈸 "
   tmux attach-session -t "$session_name"
 }
