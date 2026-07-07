@@ -16,7 +16,7 @@ alias gap="git add . && git commit --amend --no-edit --reset-author && git push 
 
 ## actions
 # alias gcbranch="git branch | grep {$1} | xargs git checkout"
-gc() { git checkout $(git branch | fzf); }
+gc() { git checkout $(git branch --format='%(refname:short)' | fzf); }
 alias grbd="git pull origin develop --rebase"              # "git rebase develop"
 alias gdob="git branch | grep -v ^* | xargs git branch -D" # "git delete other branches", delete all local branches except current one
 ## same as above but allow to give a list for a partial match

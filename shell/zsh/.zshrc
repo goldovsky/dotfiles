@@ -21,7 +21,8 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 # Zoxide
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
 
 # Atuin
 . "$HOME/.atuin/bin/env"

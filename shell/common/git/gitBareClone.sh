@@ -44,6 +44,12 @@ gbclone() {
     mkdir "$repo_name" || return 1
     git clone --bare "$url" "$repo_name/.bare" || { rm -rf "$repo_name"; return 1; }
 
+    # Configure fetch to create remote tracking branches (refs/remotes/origin/*)
+    git --git-dir="$repo_name/.bare" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+
+    # Populate remote tracking branches from the already-fetched refs
+    git -C "$repo_name/.bare" fetch origin --no-tags || :
+
     # Detect default branch from HEAD
     local default_branch
     default_branch=$(git --git-dir="$repo_name/.bare" symbolic-ref --short HEAD 2>/dev/null)
@@ -60,6 +66,10 @@ gbclone() {
         rm -rf "$repo_name"
         return 1
     }
+
+    # Rewrite gitdir pointer to relative path for container portability
+    # git worktree add always writes an absolute path in .bare/worktrees/<name>/gitdir
+    echo "../../../$worktree_name/.git" > "$repo_name/.bare/worktrees/$worktree_name/gitdir"
 
     local green='\033[0;32m'
     local cyan='\033[0;36m'

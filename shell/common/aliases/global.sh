@@ -13,8 +13,9 @@ alias killProcessId="sudo kill -9 $1"       # kill process of id $1 (ex:1234)
 
 # Navigation
 alias ll="ls -1 --group-directories-first"
-# alias l="exa --icons --group-directories-first --color-scale"
 alias la="ls -la --group-directories-first"
+# alias l="eza --icons --group-directories-first --color-scale"
+# eza --tree --level=2 --icons
 
 # Shortcuts
 alias c="clear"
