@@ -18,9 +18,7 @@ $git_status\
 $git_metrics\
 ${custom.startLine2Git}\
 ${custom.startLine2NotGit}\
-${custom.testingIcon}\
-${custom.canada}\
-${custom.lys}\
+${custom.userIcon}\
 $username\
 $time\
 $container\
@@ -88,41 +86,59 @@ format = "[ 󱌃 ]($style)"
 [custom.startLine1Git]
 # ⎧ 🯮 𜸬 ╭
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:blue"
+style = "fg:gold-yellow"
 format = "[⎧]($style) "
 
 [custom.startLine2Git]
 # ⎩ 🯬 𜸫 ╰
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:blue"
+style = "fg:gold-yellow"
 format = "\n[⎩]($style) "
 
 [custom.startLine1NotGit]
 # ⎧ 🯮 𜸬 ╭
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:green"
+style = "fg:olive-green"
 format = "[⎧]($style) "
 
 [custom.startLine2NotGit]
 # ⎩ 🯬 𜸫 ╰
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:green"
+style = "fg:olive-green"
 format = "\n[⎩]($style) "
 
-[custom.canada]
-when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:red"
-format = "[ ]($style)"
+# [custom.canada]
+# when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+# style = "fg:red"
+# format = "[ ]($style)"
 
-[custom.testingIcon]
-when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-format = "[⚓]()"
+# [custom.testingIcon]
+# when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+# format = "[⚓]()"
+
+[custom.userIcon]
+when = "true"
+style = "fg:gold-yellow"
+# format = "[ゴルド–さん]($style)"
+# format = "[ ]($style)"
+format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[󰼁 ]($style)"
+# format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[ ]($style)"
+# format = "[󰇥 ]($style)"
 
 [custom.gitFolder]
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 # format = "[ ](orange)"
 # format = "[󰊢 ](red)"
-format = "[ ](blue)"
+format = "[ ](olive-green)"
 # format = "[ ](red)"
 
 # symbol = " " #     󰊤      󰮠        🌱      |    
@@ -140,11 +156,12 @@ format = '[ $path$read_only]($style)'
 
 
 [cmd_duration]
-format = " [󰄉 ~[$duration](fg:white italic)](italic)"
+format = " [󰫃 ~[$duration](fg:white italic)](italic)"
+# format = " [󰄉 ~[$duration](fg:white italic)](italic)"
 
 [git_branch]
 symbol = "⸎ "
-format = " [$symbol](red) [$branch ](fg:blue)"
+format = " [$symbol](gold-yellow) [$branch ](fg:gold-yellow italic bold)"
 
 [git_status]
 untracked = "[ ](yellow)"
@@ -178,8 +195,8 @@ format = "[ ]($style)"
 [character]
 # ⪢  ⸎ ⪢
 # success_symbol = "[]()"
-success_symbol = "[ ❱](green bold)"
-error_symbol = "[ ⪤](red bold)"
+success_symbol = "[ ❱](olive-green bold)[❱](white bold)[❱](gold-yellow bold)"
+error_symbol = "[ ❱](red bold)[❱](red bold)[❱](red bold)" # ⪤ 
 
 # ------------------------------------#
 
@@ -203,6 +220,8 @@ yellow = "#f7eb95"   # yellow
 orange = "#ffb86c"   # derived warm accent (not in Material set)
 purple = "#6c71c4"   # bright.magenta
 cyan   = "#35434d"   # bright.cyan
+olive-green = "#636B2F"
+gold-yellow = "#EFBF04"
 
 
 # Unicode Pair Ideas
