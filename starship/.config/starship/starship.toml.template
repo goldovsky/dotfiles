@@ -1,0 +1,77 @@
+format = """\
+$os\
+"""
+
+# ${custom.weather}
+# [](fg:user-cell)\
+[custom.weather]
+command = "~/.config/bash/scripts/weather.sh"
+ignore_timeout = true
+when = true
+style = "fg:white"
+format = "[$output ]($style)"
+
+[fill]
+symbol = " "
+
+[os]
+disabled = true
+style = "fg:white bg:user-cell"
+format = "[$symbol]($style)  "
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[custom.lys]
+# ⚜
+when = false
+style = "fg:blue bg:user-cell"
+format = "[ 󱌃 ]($style)"
+
+# [custom.canada]
+# when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+# style = "fg:red"
+# format = "[ ]($style)"
+
+# [custom.testingIcon]
+# when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+# format = "[⚓]()"
+
+
+
+# Unicode Pair Ideas
+# - Box / Line Corners
+# - ┌ └ — single-line box corners (classic terminal look)
+# - ╭ ╰ — rounded box corners (softer)
+# - ┏ ┗ — heavy/top-heavy corners (bold)
+# - ▛ ▙ — blocky, high-contrast corners (graphic)
+# - Arrows / Chevrons
+# - « » — guillemets (rail-binding feel)
+# - ‹ › — single guillemets (subtle)
+# - ⟵ ⟶ — long arrows (directional, modern)
+# - ↤ ↦ — left/right hooks (technical, distinctive)
+# - ⟨ ⟩ — angle pickets (mathematical / tidy)
+# - Decorative / Flourish
+# - ❦ ❧ — floral ornaments (elegant, decorative)
+# - ✦ ✧ — star-like (sparkle / accent)
+# - ☙ ☙ — pilcrow-like flourish (symmetrical)
+# - ❲ ❳ — thin ornamental brackets
+# - ﹛ ﹜ — small curly forms (compact curly)

@@ -8,7 +8,6 @@
 format = """\
 ${custom.startLine1Git}\
 ${custom.startLine1NotGit}\
-$os\
 ${custom.gitFolder}\
 ${custom.notGitFolder}\
 $directory\
@@ -39,87 +38,39 @@ disabled = true
 format = " [󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆](fg:white bold)"
 show_always = true
 
-# ${custom.weather}
-# [](fg:user-cell)\
-[custom.weather]
-command = "~/.config/bash/scripts/weather.sh"
-ignore_timeout = true
-when = true
-style = "fg:white"
-format = "[$output ]($style)"
-
-[fill]
-symbol = " "
-
-[os]
-disabled = true
-style = "fg:white bg:user-cell"
-format = "[$symbol]($style)  "
-
-[os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = ""
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-
-[custom.lys]
-# ⚜
-when = false
-style = "fg:blue bg:user-cell"
-format = "[ 󱌃 ]($style)"
-
 [custom.startLine1Git]
-# ⎧ 🯮 𜸬 ╭
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+symbol = "⎧"
+# symbol = "🯮"
+# symbol = "𜸬"
+# symbol = "╭"
 style = "fg:gold-yellow"
-format = "[⎧]($style) "
+format = "[$symbol]($style) "
 
 [custom.startLine2Git]
-# ⎩ 🯬 𜸫 ╰
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "fg:gold-yellow"
-format = "\n[⎩]($style) "
+symbol = "⎩"
+# symbol = "🯬"
+# symbol = "𜸫"
+# symbol = "╰"
+format = "\n[$symbol]($style) "
 
 [custom.startLine1NotGit]
-# ⎧ 🯮 𜸬 ╭
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "fg:olive-green"
-format = "[⎧]($style) "
+format = "[𜸬]($style) "
 
 [custom.startLine2NotGit]
-# ⎩ 🯬 𜸫 ╰
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "fg:olive-green"
-format = "\n[⎩]($style) "
-
-# [custom.canada]
-# when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-# style = "fg:red"
-# format = "[ ]($style)"
-
-# [custom.testingIcon]
-# when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-# format = "[⚓]()"
+format = "\n[𜸫]($style) "
 
 [custom.userIcon]
 when = "true"
 style = "fg:gold-yellow"
 # format = "[ゴルド–さん]($style)"
+# format = "[「ゴルド–さん」]($style)"
 # format = "[ ]($style)"
 format = "[ ]($style)"
 # format = "[ ]($style)"
@@ -148,16 +99,14 @@ when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 format = "[ ](white)"
 
 [directory]
-# TODO put in blue in git repo
 style = "fg:white bold"
 read_only = " "
 truncation_length = 10
 format = '[ $path$read_only]($style)'
 
-
+# 󰄉
 [cmd_duration]
 format = " [󰫃 ~[$duration](fg:white italic)](italic)"
-# format = " [󰄉 ~[$duration](fg:white italic)](italic)"
 
 [git_branch]
 symbol = "⸎ "
@@ -174,7 +123,7 @@ diverged = "[󰦻 ](cyan)"
 conflicted = "[  ](red)"
 stashed = "[   ](yellow)"
 typechanged = ""
-renamed = "[󰣕 ](white)" # 󰣕 󱑻
+renamed = "[󰣕 ](white)"
 up_to_date = ""
 format = """
 $stashed\
@@ -189,12 +138,10 @@ $typechanged\
 """
 [container]
 disabled = false
-style = "fg:#0db7ed"
+style = "fg:docker-blue"
 format = "[ ]($style)"
 
 [character]
-# ⪢  ⸎ ⪢
-# success_symbol = "[]()"
 success_symbol = "[ ❱](olive-green bold)[❱](white bold)[❱](gold-yellow bold)"
 error_symbol = "[ ❱](red bold)[❱](red bold)[❱](red bold)" # ⪤ 
 
@@ -222,29 +169,4 @@ purple = "#6c71c4"   # bright.magenta
 cyan   = "#35434d"   # bright.cyan
 olive-green = "#636B2F"
 gold-yellow = "#EFBF04"
-
-
-# Unicode Pair Ideas
-# - Corners / Brackets
-# - ⌜ ⌞ — light top-left / bottom-left corner (clean, typographic)
-# - ⟦ ⟧ — double square brackets (modern, compact)
-# - ❴ ❵ — ornamental curly braces (decorative)
-# - 〈 〉 — angle brackets (minimal, elegant)
-# - 「 」 — East Asian corner quotes (strong visual bind)
-# - Box / Line Corners
-# - ┌ └ — single-line box corners (classic terminal look)
-# - ╭ ╰ — rounded box corners (softer)
-# - ┏ ┗ — heavy/top-heavy corners (bold)
-# - ▛ ▙ — blocky, high-contrast corners (graphic)
-# - Arrows / Chevrons
-# - « » — guillemets (rail-binding feel)
-# - ‹ › — single guillemets (subtle)
-# - ⟵ ⟶ — long arrows (directional, modern)
-# - ↤ ↦ — left/right hooks (technical, distinctive)
-# - ⟨ ⟩ — angle pickets (mathematical / tidy)
-# - Decorative / Flourish
-# - ❦ ❧ — floral ornaments (elegant, decorative)
-# - ✦ ✧ — star-like (sparkle / accent)
-# - ☙ ☙ — pilcrow-like flourish (symmetrical)
-# - ❲ ❳ — thin ornamental brackets
-# - ﹛ ﹜ — small curly forms (compact curly)
+docker-blue = "#0db7ed"
