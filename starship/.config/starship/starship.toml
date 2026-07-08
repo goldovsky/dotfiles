@@ -40,59 +40,45 @@ show_always = true
 
 [custom.startLine1Git]
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-symbol = "⎧"
-# symbol = "🯮"
-# symbol = "𜸬"
-# symbol = "╭"
 style = "fg:gold-yellow"
+symbol = "𜸬"
 format = "[$symbol]($style) "
 
 [custom.startLine2Git]
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "fg:gold-yellow"
-symbol = "⎩"
-# symbol = "🯬"
-# symbol = "𜸫"
-# symbol = "╰"
+symbol = "𜸫"
 format = "\n[$symbol]($style) "
 
 [custom.startLine1NotGit]
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "fg:olive-green"
-format = "[𜸬]($style) "
+symbol = "𜸬"
+format = "[$symbol]($style) "
 
 [custom.startLine2NotGit]
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 style = "fg:olive-green"
-format = "\n[𜸫]($style) "
+symbol = "𜸫"
+format = "\n[$symbol]($style) "
 
 [custom.userIcon]
 when = "true"
 style = "fg:gold-yellow"
-# format = "[ゴルド–さん]($style)"
-# format = "[「ゴルド–さん」]($style)"
-# format = "[ ]($style)"
-format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[󰼁 ]($style)"
-# format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[ ]($style)"
-# format = "[󰇥 ]($style)"
+# symbol = "ゴルド–さん"
+# symbol = "「ゴルド–さん」"
+symbol = " "
+# symbol = "󰼁 "
+# symbol = " "
+# symbol = " "
+# symbol = "󰇥 "
+format = "[$symbol]($style)"
 
 [custom.gitFolder]
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-# format = "[ ](orange)"
-# format = "[󰊢 ](red)"
-format = "[ ](olive-green)"
-# format = "[ ](red)"
-
-# symbol = " " #     󰊤      󰮠        🌱      |    
+style = "fg:olive-green"
+symbol = " "
+format = "[$symbol]($style)"
 
 [custom.notGitFolder]
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"

@@ -59,19 +59,47 @@ format = "[ 󱌃 ]($style)"
 
 # Unicode Pair Ideas
 # - Box / Line Corners
-# - ┌ └ — single-line box corners (classic terminal look)
-# - ╭ ╰ — rounded box corners (softer)
-# - ┏ ┗ — heavy/top-heavy corners (bold)
 # - ▛ ▙ — blocky, high-contrast corners (graphic)
-# - Arrows / Chevrons
-# - « » — guillemets (rail-binding feel)
-# - ‹ › — single guillemets (subtle)
-# - ⟵ ⟶ — long arrows (directional, modern)
-# - ↤ ↦ — left/right hooks (technical, distinctive)
-# - ⟨ ⟩ — angle pickets (mathematical / tidy)
-# - Decorative / Flourish
-# - ❦ ❧ — floral ornaments (elegant, decorative)
-# - ✦ ✧ — star-like (sparkle / accent)
-# - ☙ ☙ — pilcrow-like flourish (symmetrical)
-# - ❲ ❳ — thin ornamental brackets
-# - ﹛ ﹜ — small curly forms (compact curly)
+
+# symbol = " " #     󰊤      󰮠        🌱      |    
+
+------------------------------------------------------
+
+[custom.startLine1Git]
+# symbol = "⎧"
+# symbol = "🯮"
+# symbol = "╭"
+# symbol = "┌"
+# symbol = "┏"
+
+[custom.startLine2Git]
+# symbol = "⎩"
+# symbol = "🯬"
+# symbol = "╰"
+# symbol = "└"
+# symbol = "┗"
+
+[custom.gitFolder]
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = "󰊢 "
+# symbol = " "
+
+[custom.userIcon]
+# symbol = "ゴルド–さん"
+# symbol = "「ゴルド–さん」"
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = "󰼁 "
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = " "
+# symbol = "󰇥 "
