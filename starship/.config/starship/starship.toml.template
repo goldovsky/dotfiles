@@ -71,6 +71,7 @@ format = "[ 󱌃 ]($style)"
 # symbol = "╭"
 # symbol = "┌"
 # symbol = "┏"
+# symbol = "𜸬"
 
 [custom.startLine2Git]
 # symbol = "⎩"
@@ -78,6 +79,7 @@ format = "[ 󱌃 ]($style)"
 # symbol = "╰"
 # symbol = "└"
 # symbol = "┗"
+# symbol = "𜸫"
 
 [custom.gitFolder]
 # symbol = " "

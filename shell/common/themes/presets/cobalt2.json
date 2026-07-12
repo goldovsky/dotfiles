@@ -1,6 +1,6 @@
 {
-  "name": "goldovsky",
-  "description": "Cobalt2-inspired dark palette with olive-green and gold-yellow accents",
+  "name": "cobalt2",
+  "description": "Official Cobalt2 theme by Wes Bos",
   "colors": {
     "background":     "#122637",
     "foreground":     "#FFFFFF",
@@ -20,8 +20,6 @@
     "bright-magenta": "#FF55FF",
     "bright-cyan":    "#6AE3F9",
     "bright-white":   "#FFFFFF",
-    "olive-green":    "#636B2F",
-    "gold-yellow":    "#FEE409",
     "dark-cell":      "#0A1A27",
     "medium-cell":    "#1A3A52",
     "light-cell":     "#FFFFFF"
