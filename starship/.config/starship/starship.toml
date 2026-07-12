@@ -25,7 +25,7 @@ $cmd_duration\
 $character\
 """
 
-palette = "material"
+palette = "goldovsky"
 
 [time]
 disabled = true
@@ -133,26 +133,27 @@ error_symbol = "[ ❱](red bold)[❱](red bold)[❱](red bold)" # ⪤
 
 # ------------------------------------#
 
-[palettes.material]
+[palettes.goldovsky]
 # Cells: background / mid / foreground
-dark-cell   = "#1e282d"   # Material primary background
-medium-cell = "#7dc6bf"   # Material bright.blue (brighter mid tone)
-light-cell  = "#c4c7d1"   # Material foreground
+dark-cell   = "#181B20"   # Goldovsky background
+medium-cell = "#6B9EA0"   # muted teal (mid tone)
+light-cell  = "#F2F0EF"   # warm white foreground
 # Neutrals
-black       = "#ff262b"   # bright.black (from Material bright set)
-light-black = "#c4c7d1"   # foreground
-dark-grey   = "#35434d"   # bright.cyan (darker/contrast)
-grey        = "#666666"   # normal.black / neutral
-light-grey  = "#c4c7d1"   # foreground
-white       = "#ffffff"   # bright.white
-# Semantic colors (using Material bright / normal where appropriate)
-red    = "#fb4934"   # red (normal/bright)
-green  = "#c3e88d"   # green
-blue   = "#7dc6bf"   # bright.blue
-yellow = "#f7eb95"   # yellow
-orange = "#ffb86c"   # derived warm accent (not in Material set)
-purple = "#6c71c4"   # bright.magenta
-cyan   = "#35434d"   # bright.cyan
+black       = "#4C4C4C"   # neutral grey
+light-black = "#6E6E6E"   # lighter grey (comments/dim)
+dark-grey   = "#4C4C4C"   # dark neutral
+grey        = "#6E6E6E"   # mid grey
+light-grey  = "#F2F0EF"   # warm white
+white       = "#FFFFFF"   # pure white
+# Semantic colors
+red    = "#fb4934"   # warm red accent
+green  = "#A9B665"   # brightened olive
+blue   = "#6B9EA0"   # muted warm teal
+yellow = "#F5D76E"   # soft gold (for status indicators)
+orange = "#F28534"   # warm orange
+purple = "#C07AAF"   # warm mauve
+cyan   = "#7BA88D"   # sage/seafoam
+# Accent colors
 olive-green = "#636B2F"
 gold-yellow = "#EFBF04"
 docker-blue = "#0db7ed"

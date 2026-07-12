@@ -1,31 +1,28 @@
-# Colors (Material Theme)
+# Colors (Goldovsky)
 
 # Default colors
 [colors.primary]
-# background = '#353839' # Onyx
-# background = '#00674F' # vert emeraude
-background = '#1e282d' # dark blue
+background = '#181B20'
 foreground = '#F2F0EF'
 
 # Normal colors
 [colors.normal]
-black   = '#666666'
-red     = '#fb4934' # Good red
-green   = '#c3e88d'
-# green   = '#636B2F' # olive-green
-yellow  = '#EFBF04' # gold-yellow
-blue    = '#80cbc4'
-magenta = '#ff2f90'
-cyan    = '#aeddff'
+black   = '#4C4C4C'
+red     = '#fb4934'
+green   = '#A9B665'
+yellow  = '#EFBF04'
+blue    = '#6B9EA0'
+magenta = '#C07AAF'
+cyan    = '#7BA88D'
 white   = '#F2F0EF'
 
 # Bright colors
 [colors.bright]
-black   = '#ff262b'
-red     = '#eb606b'
-green   = '#c3e88d'
-yellow  = '#f7eb95'
-blue    = '#7dc6bf'
-magenta = '#6c71c4'
-cyan    = '#35434d'
-white   = '#F2F0EF'
+black   = '#6E6E6E'
+red     = '#FC6A5D'
+green   = '#C2CA6C'
+yellow  = '#F5D76E'
+blue    = '#89BFC1'
+magenta = '#D49AC5'
+cyan    = '#A1CFAE'
+white   = '#FFFFFF'
