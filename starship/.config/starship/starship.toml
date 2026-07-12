@@ -7,15 +7,16 @@
 
 format = """\
 ${custom.startLine1}\
-${custom.giticon}\
 $directory\
+$fill\
+$cmd_duration\
+$nodejs\
+${custom.gitlinestart}\
+${custom.giticon}\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-$fill\
-$cmd_duration\
-$nodejs\
 $line_break\
 ${custom.startLine2}\
 ${custom.userIcon}\
@@ -27,6 +28,15 @@ $character\
 add_newline = true
 
 palette = "cobalt2"
+
+[custom.gitlinestart]
+when = "git rev-parse --is-inside-work-tree 2> /dev/null"
+style = "fg:grey"
+# symbol = "󰊢 "
+# symbol = " "
+symbol = "\n| "
+format = "[$symbol]($style)"
+
 
 [custom.giticon]
 when = "git rev-parse --is-inside-work-tree 2> /dev/null"
@@ -76,7 +86,7 @@ format = "[$symbol]($style) "
 # format = " [$symbol](yellow) [$branch ](fg:yellow italic bold)"
 symbol = "[](grey) "
 style = "fg:cyan bg:grey"
-format =  " [on](white) [$symbol$branch]($style bold italic)[](grey) "
+format =  "[on](white) [$symbol$branch]($style bold italic)[](grey) "
 
 [git_status]
 staged = "[ ](green)"
