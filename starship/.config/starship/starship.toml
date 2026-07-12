@@ -74,9 +74,9 @@ format = "[$symbol]($style) "
 [git_branch]
 # symbol = "⸎ "
 # format = " [$symbol](yellow) [$branch ](fg:yellow italic bold)"
-symbol = "[](light-black) "
-style = "fg:light-grey bg:light-black"
-format =  " [on](white) [$symbol$branch]($style bold italic)[](light-black) "
+symbol = "[](grey) "
+style = "fg:cyan bg:grey"
+format =  " [on](white) [$symbol$branch]($style bold italic)[](grey) "
 
 [git_status]
 staged = "[ ](green)"
