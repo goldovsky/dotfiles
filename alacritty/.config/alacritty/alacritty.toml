@@ -3,7 +3,7 @@ import = [
   #  "~/git/dotfiles/alacritty/.config/alacritty/themes/ayu_dark.toml"
   # "~/git/dotfiles/alacritty/.config/alacritty/themes/gruvbox_dark.toml"
   # "~/git/dotfiles/alacritty/.config/alacritty/themes/material_theme.toml"
-  "~/git/dotfiles/alacritty/.config/alacritty/themes/goldovsky.toml"
+  "~/git/dotfiles/shell/common/themes/outputs/alacritty-theme.toml"
 ]
 
 [terminal]

@@ -1,0 +1,29 @@
+{
+  "name": "goldovsky",
+  "description": "Cobalt2-inspired dark palette with olive-green and gold-yellow accents",
+  "colors": {
+    "background":     "#122637",
+    "foreground":     "#FFFFFF",
+    "black":          "#000000",
+    "red":            "#FF0000",
+    "green":          "#37DD21",
+    "yellow":         "#FEE409",
+    "blue":           "#1460D2",
+    "magenta":        "#FF005D",
+    "cyan":           "#00BBBB",
+    "white":          "#BBBBBB",
+    "bright-black":   "#545454",
+    "bright-red":     "#F40D17",
+    "bright-green":   "#3BCF1D",
+    "bright-yellow":  "#ECC809",
+    "bright-blue":    "#5555FF",
+    "bright-magenta": "#FF55FF",
+    "bright-cyan":    "#6AE3F9",
+    "bright-white":   "#FFFFFF",
+    "olive-green":    "#636B2F",
+    "gold-yellow":    "#FEE409",
+    "dark-cell":      "#0A1A27",
+    "medium-cell":    "#1A3A52",
+    "light-cell":     "#FFFFFF"
+  }
+}

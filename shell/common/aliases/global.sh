@@ -46,8 +46,11 @@ alias ytmp3='youtube-dl -ciw -o "%(title)s.%(ext)s" --extract-audio --audio-form
 alias ytvid='youtube-dl -ciw --format mp4 -o "%(title)s.%(ext)s"'
 
 # Weather
-alias wttr="curl wttr.in/roubaix" # /$1 ?
+alias wttr="curl wttr.in/roubaix" #  /$1 ?
 alias weather=". ~/.config/shell/common/scripts/weather.sh"
+
+# Theme
+theme() { ~/git/dotfiles/shell/common/themes/generate-colors.sh "$@" && tmux source-file ~/.tmux.conf 2>/dev/null; }
 
 
 # To turn on ZSH by default
