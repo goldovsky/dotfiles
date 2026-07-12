@@ -8,15 +8,15 @@
 format = """\
 ${custom.startLine1}\
 $directory\
+$git_state\
+$git_status\
+$git_metrics\
 $fill\
 $cmd_duration\
 $nodejs\
 ${custom.gitlinestart}\
 ${custom.giticon}\
 $git_branch\
-$git_state\
-$git_status\
-$git_metrics\
 $line_break\
 ${custom.startLine2}\
 ${custom.userIcon}\
@@ -51,7 +51,7 @@ ignore_timeout = true
 style = "fg:light-grey bold"
 read_only = " "
 truncation_length = 10
-format = '[$path$read_only]($style)'
+format = '[$path$read_only]($style) '
 
 [fill]
 symbol = " "
