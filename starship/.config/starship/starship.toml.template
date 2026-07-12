@@ -105,3 +105,46 @@ format = "[ 󱌃 ]($style)"
 # symbol = " "
 # symbol = " "
 # symbol = "󰇥 "
+
+
+--------------------------------------------
+
+[custom.gitFolder]
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+style = "fg:blue"
+symbol = " "
+# symbol = " "
+format = "[$symbol ]($style)"
+
+[custom.startLine1NotGit]
+when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+style = "fg:white"
+symbol = "┏"
+format = "[$symbol]($style) "
+
+[custom.startLine2NotGit]
+when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+style = "fg:white"
+symbol = "┗"
+format = "\n[$symbol]($style) "
+
+[custom.notGitFolder]
+when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+style = "fg:white"
+symbol = " "
+format = "[$symbol ]($style)"
+
+${custom.userIcon}\
+
+[custom.userIcon]
+when = "true"
+style = "fg:yellow"
+symbol = "ゴルド–さん"
+# symbol = "「ゴルド–さん」"
+# symbol = " "
+# symbol = "󰼁 "
+# symbol = " "
+# symbol = " "
+# symbol = "󰇥 "
+# symbol = "󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆 "
+format = "[$symbol]($style)"

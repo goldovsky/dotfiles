@@ -6,17 +6,14 @@
 
 
 format = """\
-${custom.startLine1Git}\
-${custom.startLine1NotGit}\
-${custom.gitFolder}\
-${custom.notGitFolder}\
+${custom.startLine1}\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-${custom.startLine2Git}\
-${custom.startLine2NotGit}\
+$line_break\
+${custom.startLine2}\
 ${custom.userIcon}\
 $time\
 $container\
@@ -24,67 +21,34 @@ $cmd_duration\
 $character\
 """
 
+add_newline = true
+
 palette = "cobalt2"
-
-[character]
-success_symbol = "[ ❱](blue bold)[❱](white bold)[❱](yellow bold)"
-error_symbol = "[ ❱](red bold)[❱](red bold)[❱](red bold)" # ⪤
-
-[custom.userIcon]
-when = "true"
-style = "fg:yellow"
-# symbol = "ゴルド–さん"
-# symbol = "「ゴルド–さん」"
-symbol = " "
-# symbol = "󰼁 "
-# symbol = " "
-# symbol = " "
-# symbol = "󰇥 "
-# symbol = "󰫴󰫼󰫹󰫱󰫼󰬃󰬀󰫸󰬆 "
-format = "[$symbol]($style)"
-
-[custom.startLine1Git]
-when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:blue"
-symbol = "┏"
-format = "[$symbol]($style) "
-
-[custom.startLine2Git]
-when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:blue"
-symbol = "┗"
-format = "\n[$symbol]($style) "
-
-[custom.gitFolder]
-when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:blue"
-symbol = " "
-# symbol = " "
-format = "[$symbol ]($style)"
-
-[custom.startLine1NotGit]
-when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:white"
-symbol = "┏"
-format = "[$symbol]($style) "
-
-[custom.startLine2NotGit]
-when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:white"
-symbol = "┗"
-format = "\n[$symbol]($style) "
-
-[custom.notGitFolder]
-when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-style = "fg:white"
-symbol = " "
-format = "[$symbol ]($style)"
 
 [directory]
 style = "fg:light-grey bold"
 read_only = " "
 truncation_length = 10
 format = '[$path$read_only]($style)'
+
+[character]
+success_symbol = "[](green bold)"
+error_symbol = "[](red bold)" # 
+
+[line_break]
+disabled = false
+
+[custom.startLine1]
+when = "true"
+style = "fg:blue"
+symbol = "┏"
+format = "[$symbol]($style) "
+
+[custom.startLine2]
+when = "true"
+style = "fg:blue"
+symbol = "┗"
+format = "[$symbol]($style) "
 
 [git_branch]
 symbol = "⸎ "

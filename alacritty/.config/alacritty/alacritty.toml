@@ -20,7 +20,7 @@ opacity = 1
 startup_mode = "Maximized"
 
 [font]
-size = 14
+size = 16
 [font.normal]
 family = "ZedMono Nerd Font"
 style = "Regular"
