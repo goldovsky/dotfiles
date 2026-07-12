@@ -204,9 +204,34 @@ else
     echo -e "  ${YELLOW}⚠${NC} Starship    → config not found at ${STARSHIP_CONFIG}"
 fi
 
+# --- OpenCode ---
+OPENCODE_THEME="${HOME}/.config/opencode/themes/custom.json"
+python3 << PYEOF
+import json
+
+with open("${SOURCE}", "r") as f:
+    data = json.load(f)
+
+defs = data["colors"]["opencode-defs"]
+theme_props = data["colors"]["opencode-theme"]
+
+theme = {
+    "\$schema": "https://opencode.ai/theme.json",
+    "defs": defs,
+    "theme": theme_props
+}
+
+with open("${OPENCODE_THEME}", "w") as f:
+    json.dump(theme, f, indent=2)
+    f.write("\n")
+PYEOF
+
+echo -e "  ${GREEN}✓${NC} OpenCode    → ${OPENCODE_THEME}"
+
 echo ""
 echo -e "${BOLD}${MAGENTA}  󰏗 Theme: ${THEME_NAME}${NC}"
 echo ""
 echo -e "  ${CYAN}󰒩 Alacritty${NC}  → auto-reload"
 echo -e "  ${CYAN}󰒭 Tmux${NC}      → tmux source-file ~/.tmux.conf"
 echo -e "  ${CYAN}󰒮 Starship${NC}   → restart shell"
+echo -e "  ${CYAN}󰒫 OpenCode${NC}   → restart opencode"
