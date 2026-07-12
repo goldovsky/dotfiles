@@ -13,12 +13,14 @@ $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
+$fill\
+$cmd_duration\
+$nodejs\
 $line_break\
 ${custom.startLine2}\
 ${custom.userIcon}\
 $time\
 $container\
-$cmd_duration\
 $character\
 """
 
@@ -42,6 +44,14 @@ read_only = " "
 truncation_length = 10
 format = '[$path$read_only]($style)'
 
+[fill]
+symbol = " "
+
+[nodejs]
+symbol = ""
+version_format = "${major}.${minor}"
+format = "[ $symbol( $version) ]($style)"
+
 [character]
 success_symbol = "[](green bold)"
 error_symbol = "[](red bold)" # 
@@ -53,13 +63,13 @@ disabled = false
 when = "true"
 style = "fg:grey"
 symbol = "┏"
-format = " [$symbol]($style) "
+format = "[$symbol]($style) "
 
 [custom.startLine2]
 when = "true"
 style = "fg:grey"
 symbol = "┗"
-format = " [$symbol]($style) "
+format = "[$symbol]($style) "
 
 [git_branch]
 # symbol = "⸎ "
@@ -100,9 +110,9 @@ time_format = "%R"
 style = "fg:white bg:user-cell"
 format = ' [$time]($style)'
 
-# 󰄉
+# 󰄉  󰫃
 [cmd_duration]
-format = "[󰫃 ~[$duration](fg:white italic)](italic)"
+format = "[󰄉 ~[$duration](fg:white italic)](italic) "
 
 [container]
 disabled = false
