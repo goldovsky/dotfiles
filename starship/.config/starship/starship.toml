@@ -7,6 +7,7 @@
 
 format = """\
 ${custom.startLine1}\
+${custom.giticon}\
 $directory\
 $git_branch\
 $git_state\
@@ -25,6 +26,16 @@ add_newline = true
 
 palette = "cobalt2"
 
+[custom.giticon]
+when = "git rev-parse --is-inside-work-tree 2> /dev/null"
+style = "fg:orange"
+# symbol = "󰊢 "
+# symbol = " "
+symbol = " "
+format = "[$symbol]($style) "
+require_repo = true
+ignore_timeout = true
+
 [directory]
 style = "fg:light-grey bold"
 read_only = " "
@@ -40,42 +51,46 @@ disabled = false
 
 [custom.startLine1]
 when = "true"
-style = "fg:blue"
+style = "fg:grey"
 symbol = "┏"
-format = "[$symbol]($style) "
+format = " [$symbol]($style) "
 
 [custom.startLine2]
 when = "true"
-style = "fg:blue"
+style = "fg:grey"
 symbol = "┗"
-format = "[$symbol]($style) "
+format = " [$symbol]($style) "
 
 [git_branch]
-symbol = "⸎ "
-format = " [$symbol](yellow) [$branch ](fg:yellow italic bold)"
+# symbol = "⸎ "
+# format = " [$symbol](yellow) [$branch ](fg:yellow italic bold)"
+symbol = "[](light-black) "
+style = "fg:light-grey bg:light-black"
+format =  " [on](white) [$symbol$branch]($style bold italic)[](light-black) "
 
 [git_status]
-untracked = "[ ](yellow)"
-modified = "[ ](white)"
 staged = "[ ](green)"
+modified = "[ ](white)"
+renamed = "[ 󰣕 ](white)"
 deleted = "[ ](red)" #  
+untracked = "[ ](yellow)"
+stashed = "[   ](yellow)"
+conflicted = "[  ](red)"
+
 ahead = "[  ](green)"
 behind = "[  ](orange)"
 diverged = "[󰦻 ](cyan)"
-conflicted = "[  ](red)"
-stashed = "[   ](yellow)"
 typechanged = ""
-renamed = "[ 󰣕 ](white)"
 up_to_date = ""
 format = """
 $stashed\
 $conflicted\
 $ahead_behind\
-$deleted\
 $modified\
 $staged\
 $untracked\
 $renamed\
+$deleted\
 $typechanged\
 """
 
@@ -87,7 +102,7 @@ format = ' [$time]($style)'
 
 # 󰄉
 [cmd_duration]
-format = " [󰫃 ~[$duration](fg:white italic)](italic)"
+format = "[󰫃 ~[$duration](fg:white italic)](italic)"
 
 [container]
 disabled = false
