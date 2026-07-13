@@ -6,6 +6,10 @@
 
 
 format = """\
+${custom.giticon}\
+$git_branch\
+$nodejs\
+${custom.gitlinebreak}\
 ${custom.startLine1}\
 $directory\
 $git_state\
@@ -13,10 +17,6 @@ $git_status\
 $git_metrics\
 $fill\
 $cmd_duration\
-$nodejs\
-${custom.gitlinestart}\
-${custom.giticon}\
-$git_branch\
 $line_break\
 ${custom.startLine2}\
 ${custom.userIcon}\
@@ -29,13 +29,6 @@ add_newline = true
 
 palette = "cobalt2"
 
-[custom.gitlinestart]
-when = "git rev-parse --is-inside-work-tree 2> /dev/null"
-style = "fg:grey"
-symbol = "\n| "
-format = "[$symbol]($style)"
-
-
 [custom.giticon]
 when = "git rev-parse --is-inside-work-tree 2> /dev/null"
 style = "fg:orange"
@@ -43,9 +36,14 @@ style = "fg:orange"
 # symbol = " "
 symbol = " "
 # symbol = "⸎ "
-format = "[$symbol]($style) [on](white) "
+format = "[$symbol]($style) "
+# format = "[$symbol]($style) [on](white) "
 require_repo = true
 ignore_timeout = true
+
+[custom.gitlinebreak]
+when = "git rev-parse --is-inside-work-tree 2> /dev/null"
+format = "\n"
 
 [directory]
 style = "fg:light-grey bold"
@@ -60,7 +58,7 @@ symbol = " "
 # symbol = ""
 symbol = "󰫈"
 version_format = "${major}.${minor}"
-format = "[ $symbol( $version) ]($style)"
+format = "[ $symbol( $version) ]($style bold)"
 
 [character]
 success_symbol = "[](green bold)"
@@ -123,7 +121,7 @@ format = "[󰄉 ~[$duration](fg:white italic)](italic) "
 
 [container]
 disabled = false
-style = "fg:docker-blue"
+style = "fg:#0db7ed"
 format = "[ ]($style) "
 
 # ------------------------------------#

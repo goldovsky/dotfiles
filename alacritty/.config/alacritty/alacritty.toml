@@ -21,9 +21,11 @@ opacity = 1
 startup_mode = "Maximized"
 
 [font]
-size = 16
+size = 15
 [font.normal]
 family = "ZedMono Nerd Font"
+# family = "Iosevka Nerd Font"
+# family = "Hack Nerd Font"
 style = "Regular"
 
 [cursor]
