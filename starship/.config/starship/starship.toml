@@ -6,10 +6,6 @@
 
 
 format = """\
-${custom.giticon}\
-$git_branch\
-$nodejs\
-${custom.gitlinebreak}\
 ${custom.startLine1}\
 $directory\
 $git_state\
@@ -17,6 +13,8 @@ $git_status\
 $git_metrics\
 $fill\
 $cmd_duration\
+$nodejs\
+$git_branch\
 $line_break\
 ${custom.startLine2}\
 ${custom.userIcon}\
@@ -29,22 +27,6 @@ add_newline = true
 
 palette = "cobalt2"
 
-[custom.giticon]
-when = "git rev-parse --is-inside-work-tree 2> /dev/null"
-style = "fg:orange"
-# symbol = "󰊢 "
-# symbol = " "
-symbol = " "
-# symbol = "⸎ "
-format = "[$symbol]($style) "
-# format = "[$symbol]($style) [on](white) "
-require_repo = true
-ignore_timeout = true
-
-[custom.gitlinebreak]
-when = "git rev-parse --is-inside-work-tree 2> /dev/null"
-format = "\n"
-
 [directory]
 style = "fg:light-grey bold"
 read_only = " "
@@ -56,9 +38,10 @@ symbol = " "
 
 [nodejs]
 # symbol = ""
-symbol = "󰫈"
+# symbol = "󰫈"
+symbol = ""
 version_format = "${major}.${minor}"
-format = "[ $symbol( $version) ]($style bold)"
+format = "[$symbol( $version) ]($style bold dimmed)"
 
 [character]
 success_symbol = "[](green bold)"
@@ -80,9 +63,12 @@ symbol = "┗"
 format = "[$symbol]($style) "
 
 [git_branch]
-symbol = "[](grey) "
+# # symbol = "󰊢 "
+# # symbol = " "
+symbol = " "
+# # symbol = "⸎ "
 style = "fg:cyan bg:grey"
-format =  "[$symbol$branch]($style bold italic)[](grey) "
+format = "[](grey)[$branch]($style bold italic)[ $symbol](fg:red bg:grey)[](grey)"
 
 [git_status]
 staged = "[ ](green)"
@@ -114,7 +100,7 @@ $typechanged\
 disabled = true
 time_format = "%R"
 style = "fg:white bg:user-cell bold"
-format = '[$time]($style) '
+format = '[$time]($style)'
 
 [cmd_duration]
 format = "[󰄉 ~[$duration](fg:white italic)](italic) "
