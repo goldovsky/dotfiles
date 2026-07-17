@@ -37,6 +37,7 @@ format = '[$path$read_only]($style) '
 symbol = " "
 
 [nodejs]
+# style = "fg:yellow bold"
 # symbol = ""
 # symbol = "󰫈"
 symbol = ""
@@ -72,7 +73,7 @@ format = "[$symbol]($style) "
 
 [custom.git_branch]
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-command = "b=$(git rev-parse --abbrev-ref HEAD 2>/dev/null) && if [[ \"$b\" =~ ^(fix|feature|refacto)/?RCMTORCH-([0-9]{4})/(.+)$ ]]; then p=\"${BASH_REMATCH[1]}\"; n=\"${BASH_REMATCH[2]}\"; t=\"${BASH_REMATCH[3]}\"; if [[ -z \"$p\" || \"$p\" == \"feature\" ]]; then echo \"N°$n $t\"; else echo \"$p N°$n $t\"; fi; else echo \"$b\"; fi"
+command = "b=$(git rev-parse --abbrev-ref HEAD 2>/dev/null) && if [[ \"$b\" =~ ^(fix|feature|refacto)/?RCMTORCH-([0-9]+)/(.+)$ ]]; then p=\"${BASH_REMATCH[1]}\"; n=\"${BASH_REMATCH[2]}\"; t=\"${BASH_REMATCH[3]}\"; if [[ -z \"$p\" || \"$p\" == \"feature\" ]]; then echo \"N°$n $t\"; else echo \"$p N°$n $t\"; fi; else echo \"$b\"; fi"
 style = "fg:cyan bg:grey"
 format = "[](grey)[$output]($style bold italic)[  ](fg:red bg:grey)[](grey)"
 
