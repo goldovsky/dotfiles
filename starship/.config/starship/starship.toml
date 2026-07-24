@@ -11,8 +11,8 @@ ${custom.git_directory}${custom.normal_directory}\
 $git_state\
 $git_status\
 $git_metrics\
-$fill\
 $cmd_duration\
+$fill\
 $nodejs\
 ${custom.git_branch_name}${custom.git_branch_ticket}${custom.git_branch_icon}\
 $line_break\
@@ -47,9 +47,10 @@ fi
 [ ! -w "$PWD" ] && out="$out "
 echo "$out"
 '''
-symbol = "⸎ "
+symbol = ""
+# symbol = "⸎  "
 style = "fg:yellow bold"
-format = "[$symbol $output]($style) "
+format = "[$symbol$output]($style) "
 
 [custom.normal_directory]
 when = "! git rev-parse --is-inside-work-tree >/dev/null 2>&1"
@@ -178,8 +179,9 @@ time_format = "%R"
 style = "fg:white bg:user-cell bold"
 format = '[$time]($style)'
 
+# 󰄉
 [cmd_duration]
-format = "[󰄉 ~[$duration](fg:white italic)](italic) "
+format = "[~[$duration](fg:white italic)](italic) "
 
 [container]
 disabled = false
