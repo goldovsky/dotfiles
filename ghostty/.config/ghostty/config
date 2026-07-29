@@ -21,3 +21,8 @@ window-padding-y = 0
 
 font-family = Zed Mono Nerd Font
 # font-size = 14
+
+# Shaders
+# custom-shader = ~/.config/ghostty/shaders/shader.glsl
+custom-shader = ~/git/dotfiles/ghostty/.config/ghostty/shaders/animated-gradient-shader.glsl
+custom-shader = ~/git/dotfiles/ghostty/.config/ghostty/shaders/gradient-background.glsl

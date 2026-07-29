@@ -80,8 +80,8 @@ version_format = "${major}.${minor}"
 format = "[$symbol( $version) ]($style bold dimmed)"
 
 [character]
-success_symbol = "[](green bold)"
-error_symbol = "[](red bold)"
+success_symbol = "[](green bold)"
+error_symbol = "[](red bold)"
 
 [line_break]
 disabled = false
@@ -156,8 +156,8 @@ untracked = "[ ](yellow)"
 stashed = "[   ](yellow)"
 conflicted = "[  ](red)"
 
-ahead = "[  ](green)"
-behind = "[  ](orange)"
+ahead = "[  ](green)"
+behind = "[  ](orange)"
 diverged = "[󰦻 ](cyan)"
 typechanged = ""
 up_to_date = ""
@@ -212,4 +212,3 @@ yellow = '#FEE409'
 orange = '#F40D17'
 purple = '#FF005D'
 cyan   = '#00BBBB'
-

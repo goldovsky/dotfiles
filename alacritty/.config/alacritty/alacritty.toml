@@ -11,14 +11,14 @@ shell = { program = "/bin/bash", args = ["-l"] }
 
 [window]
 # padding = { x = 35, y = 15 }
-padding = { x = 15, y = 0 }
+# padding = { x = 15, y = 0 }
 dimensions = { columns = 120, lines = 30 }
 dynamic_padding = true
 title = "Alacritty"
 decorations = "None"
 blur = true
 opacity = 1
-startup_mode = "Maximized"
+startup_mode = "Fullscreen" # "Maximized"
 
 [font]
 size = 15
