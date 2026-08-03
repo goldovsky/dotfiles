@@ -17,7 +17,7 @@ set -g status-left ''
 set -g window-status-separator '  '
 
 # Status right: battery + time (cyan)
-set -g status-right '#[fg=#06B6D4]#{battery_icon} #{battery_percentage} | %H:%M '
+set -g status-right '#[fg=#06B6D4] %H:%M  #{battery_icon} #{battery_percentage} '
 
 # Custom status format (3 columns): tabs left, session name centered, status-right right
 # Built from small @sf_* parts so each line stays readable.
