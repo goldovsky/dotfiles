@@ -12,5 +12,8 @@ set -g status-left ''
 # Window status format
 set -g window-status-separator '  '
 
+# SHow battery life
+set -g status-right '#{battery_icon} #{battery_percentage} | %H:%M '
+
 # Load colors from shared theme
 source ~/git/dotfiles/shell/common/themes/outputs/tmux-colors.tmux

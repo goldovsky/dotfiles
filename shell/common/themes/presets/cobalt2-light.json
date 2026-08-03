@@ -23,6 +23,7 @@
     "dark-cell":      "#8098A8",
     "medium-cell":    "#708898",
     "light-cell":     "#FFFFFF",
+    "border":         "#6A8090",
     "opencode-defs": {
       "bg":           "#9AAAB8",
       "bgPanel":      "#8AA0B0",

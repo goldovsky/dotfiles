@@ -121,8 +121,8 @@ set -g window-status-format '#[fg=$(c white)]#I #W'
 set -g window-status-current-format '#[fg=$(c yellow),bold]#I #[fg=$(c yellow),bold]#W'
 
 # Pane borders
-set -g pane-border-style 'fg=$(c background)'
-set -g pane-active-border-style 'fg=$(c cyan)'
+set -g pane-border-style 'fg=$(c border)'
+set -g pane-active-border-style 'fg=$(c bright-green)'
 
 # Message styling
 set -g message-style 'fg=$(c foreground),bg=$(c background)'
