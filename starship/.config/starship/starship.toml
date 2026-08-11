@@ -76,7 +76,7 @@ symbol = " "
 # symbol = ""
 # symbol = "󰫈"
 symbol = ""
-version_format = "${major}.${minor}"
+version_format = "${major}.${minor}.${patch}"
 format = "[$symbol( $version) ]($style bold dimmed)"
 
 [character]
@@ -212,4 +212,3 @@ yellow = '#FFC600'
 orange = '#FF6B6B'
 purple = '#A855F7'
 cyan   = '#06B6D4'
-

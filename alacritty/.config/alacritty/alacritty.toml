@@ -21,7 +21,7 @@ opacity = 0.98
 startup_mode = "Fullscreen" # "Maximized"
 
 [font]
-size = 15
+size = 14
 [font.normal]
 family = "ZedMono Nerd Font"
 # family = "Iosevka Nerd Font"
