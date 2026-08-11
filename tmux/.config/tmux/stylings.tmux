@@ -1,12 +1,10 @@
 #### --- Status Bar Styling --- ####
 ## sessionIcon
-set -g @sf_sessionicon '#[fg=#FFFFFF,bg=#1E3A5F] 󱑼 #[bg=#0E1D31,fg=#1E3A5F]'
+set -g @sf_sessionicon '#[fg=#FFFFFF,bg=#00C16A] 󱑼 #[bg=#0E1C30,fg=#00C16A]'
 ## sessionName
-set -g @sf_sessionname '#[bg=#0E1D31,fg=#1E3A5F]#[fg=#06B6D4,bold,bg=#1E3A5F] #S'
+set -g @sf_sessionname '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#00C16A,bold,bg=#1E3A5F] #S'
 ## Time
-set -g @sf_time '#[fg=#FFFFFF,bg=#1E3A5F]%H:%M #[fg=#1E3A5F,bg=#0E1D31]'
-## Battery
-# set -g @sf_battery '#[fg=#1E3A5F,bg=#0E1D31]#[fg=#FFFFFF,bg=#1E3A5F]'
+set -g @sf_time '#[fg=#FFFFFF,bg=#1E3A5F]%H:%M #[fg=#1E3A5F,bg=#0E1C30]'
 
 
 # Load colors from shared theme
@@ -28,17 +26,17 @@ set -g status-left ''
 
 # Window status format: slanted buttons (title only), overrides generated theme formats
 set -g window-status-separator ''
-set -g window-status-format '#[bg=#0E1D31,fg=#1E3A5F]#[fg=#94A3B8,bg=#1E3A5F] #W #[bg=#0E1D31,fg=#1E3A5F]'
-set -g window-status-current-format '#[bg=#0E1D31,fg=#1E3A5F]#[fg=#FFC600,bold,bg=#1E3A5F] #W #[bg=#0E1D31,fg=#1E3A5F]'
+set -g window-status-format '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#94A3B8,bg=#1E3A5F] #W #[bg=#0E1C30,fg=#1E3A5F]'
+set -g window-status-current-format '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#FFC600,bold,bg=#1E3A5F] #W #[bg=#0E1C30,fg=#1E3A5F]'
 
 # Status right: battery + time (white) | 󰁹 
-set -g status-right '#{E:@sf_time}#{E:@sf_battery}#{battery_percentage} '
+set -g status-right '#{E:@sf_time}#[fg=#1E3A5F,bg=#0E1C30]#[fg=#FFFFFF,bg=#1E3A5F] 󰁹 #{battery_percentage} '
 
 # Custom status format: session block + window buttons (left), status-right right
 # Built from small @sf_* parts so each line stays readable.
 # Session block + window buttons (left)
-set -g @sf_tabs '#{E:@sf_sessionicon}#{E:@sf_sessionname} #[bg=#0E1D31,fg=#1E3A5F]#[list=on align=#{status-justify}]#[list=left-marker]<#[list=right-marker]>#[list=on]#{W:#[range=window|#{window_index} #{E:window-status-style}]#[push-default]#{T:window-status-format}#[pop-default]#[norange]#{?window_end_flag,,#{window-status-separator}},#[range=window|#{window_index} list=focus #{E:window-status-current-style}]#[push-default]#{T:window-status-current-format}#[pop-default]#[norange list=on]#{?window_end_flag,,#{window-status-separator}}}'
+set -g @sf_tabs '#{E:@sf_sessionicon}#{E:@sf_sessionname} #[bg=#0E1C30,fg=#1E3A5F]#[list=on align=#{status-justify}]#[list=left-marker]<#[list=right-marker]>#[list=on]#{W:#[range=window|#{window_index} #{E:window-status-style}]#[push-default]#{T:window-status-format}#[pop-default]#[norange]#{?window_end_flag,,#{window-status-separator}},#[range=window|#{window_index} list=focus #{E:window-status-current-style}]#[push-default]#{T:window-status-current-format}#[pop-default]#[norange list=on]#{?window_end_flag,,#{window-status-separator}}}'
 # Status right (battery + time)
-set -g @sf_right '#[nolist align=right range=right #{E:status-right-style}]#[bg=#0E1D31,fg=#1E3A5F]#[bg=#1E3A5F] #[fg=#FFFFFF,bg=#1E3A5F]#[push-default]#{T;=/#{status-right-length}:status-right}#[pop-default]#[norange default]'
+set -g @sf_right '#[nolist align=right range=right #{E:status-right-style}]#[bg=#0E1C30,fg=#1E3A5F]#[bg=#1E3A5F] #[fg=#FFFFFF,bg=#1E3A5F]#[push-default]#{T;=/#{status-right-length}:status-right}#[pop-default]#[norange default]'
 # Assemble them into the status line
 set -g status-format[0] '#{E:@sf_tabs}#{E:@sf_right}'
