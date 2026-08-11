@@ -23,7 +23,7 @@ set -g window-status-format '#[bg=#0E1D31,fg=#1E3A5F]#[fg=#94A3B8,bg=#1E3A5F]
 set -g window-status-current-format '#[bg=#0E1D31,fg=#1E3A5F]#[fg=#FFC600,bold,bg=#1E3A5F] #W #[bg=#0E1D31,fg=#1E3A5F]'
 
 # Status right: battery + time (white) | 󰁹 
-set -g status-right '#[fg=#FFFFFF,bg=#1E3A5F]%H:%M  #{battery_percentage} '
+set -g status-right '#[fg=#FFFFFF,bg=#1E3A5F]%H:%M #[fg=#1E3A5F,bg=#0E1D31]#[fg=#1E3A5F,bg=#0E1D31]#[fg=#FFFFFF,bg=#1E3A5F] #{battery_percentage} '
 
 # Custom status format: session block + window buttons (left), status-right right
 # Built from small @sf_* parts so each line stays readable.
