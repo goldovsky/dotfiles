@@ -3,6 +3,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @plugin 'xamut/tmux-weather'
 
 # Battery icons (Nerd Font) - the default emoji don't render in all fonts
 set -g @batt_icon_status_charged '󱟢'
