@@ -18,4 +18,4 @@ set -g window-status-separator ''
 set -g window-status-format '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#94A3B8,bg=#1E3A5F] #W #[bg=#0E1C30,fg=#1E3A5F]'
 set -g window-status-current-format '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#FFC600,bold,bg=#1E3A5F] #W #[bg=#0E1C30,fg=#1E3A5F]'
 
-set -g status-right '#{E:@sf_time}#[fg=#1E3A5F,bg=#0E1C30]#[fg=#FFFFFF,bg=#1E3A5F] 󰁹 #{battery_percentage} #[fg=#1E3A5F,bg=#0E1C30]#{E:@sf_sessioniconright}'
+set -g status-right '#{E:@sf_time}#[fg=#1E3A5F,bg=#0E1C30]#[fg=#94A3B8,bg=#1E3A5F] 󰁹 #[fg=#FFFFFF,bg=#1E3A5F]#{battery_percentage} #[fg=#1E3A5F,bg=#0E1C30]#{E:@sf_sessioniconright}'
