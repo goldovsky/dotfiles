@@ -7,7 +7,7 @@ set -g @sf_sessioniconleft '#[fg=#FFFFFF,bg=#00C16A] 󱑼 #[bg=#0E1C30,fg=#00C16
 set -g @sf_sessionname '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#00C16A,bold,bg=#1E3A5F] #S #[bg=#0E1C30,fg=#1E3A5F]'
 
 set -g @sf_time '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#FFFFFF,bg=#1E3A5F] %H:%M #[fg=#1E3A5F,bg=#0E1C30]'
-set -g @sf_sessioniconright '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#00C16A,bg=#1E3A5F] 󱑼  '
+set -g @sf_sessioniconright '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#00C16A,bg=#1E3A5F] 󱑼 '
 
 #### --- Status Bar Styling --- ####
 set -g status-position top
