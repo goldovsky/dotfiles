@@ -2,18 +2,18 @@
 # Source: nuxt.json
 
 # Status style - match alacritty
-set -g status-style 'fg=#FFFFFF,bg=#0E1C30'
+# set -g status-style 'fg=#FFFFFF,bg=#0E1C30'
 
 # Inactive windows (white for contrast on dark bg)
-set -g window-status-format '#[fg=#94A3B8]#I #W'
+# set -g window-status-format '#[fg=#94A3B8]#I #W'
 
 # Active window (yellow accent, bold)
-set -g window-status-current-format '#[fg=#FFC600,bold]#I #[fg=#FFC600,bold]#W'
+# set -g window-status-current-format '#[fg=#FFC600,bold]#I #[fg=#FFC600,bold]#W'
 
 # Pane borders
-set -g pane-border-style 'fg=#1E3A5F'
-set -g pane-active-border-style 'fg=#00DC82'
+# set -g pane-border-style 'fg=#1E3A5F'
+# set -g pane-active-border-style 'fg=#00DC82'
 
 # Message styling
-set -g message-style 'fg=#FFFFFF,bg=#0E1C30'
-set -g message-command-style 'fg=#FFFFFF,bg=#0E1C30'
+# set -g message-style 'fg=#FFFFFF,bg=#0E1C30'
+# set -g message-command-style 'fg=#FFFFFF,bg=#0E1C30'

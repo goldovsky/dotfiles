@@ -1,22 +1,51 @@
 # Load colors from shared theme
-source ~/git/dotfiles/shell/common/themes/outputs/tmux-colors.tmux
+## TODO change the script to generate those colors
+# source ~/git/dotfiles/shell/common/themes/outputs/tmux-colors.tmux
 
-#### --- Variables --- ####
+# Colors declaration
+cl_default="default"
+cl_background="#1E3A5F"
+cl_inactive="#94A3B8"
+cl_active="#FFC600"
+cl_accent="#00C16A"
+cl_white="#FFFFFF"
 
-set -g @sf_sessioniconleft '#[fg=#FFFFFF,bg=#00C16A] 󱑼 #[bg=#0E1C30,fg=#00C16A]'
-set -g @sf_sessionname '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#00C16A,bold,bg=#1E3A5F] #S #[bg=#0E1C30,fg=#1E3A5F]'
+ic_s="󱑼"
+ic_b="󱐋"
+ic_ll=""
+ic_lr=""
+ic_rl=""
+ic_rr=""
 
-set -g @sf_time '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#FFFFFF,bg=#1E3A5F] %H:%M #[fg=#1E3A5F,bg=#0E1C30]'
-set -g @sf_batteryicon '#[fg=#00C16A,bg=#1E3A5F]󱐋 '
+
+#### --- General Settings --- ####
+set -g status-position top
+set -g status-left-length 100
+# set -g window-status-separator ""
+# set -g status-style "fg=${cl_white},bg=${cl_default}"
+
+# Pane borders
+# set -g pane-border-style "fg=${cl_background}"
+# set -g pane-active-border-style "fg=#00DC82"
+
+# Message styling
+set -g message-style "fg=${cl_white},bg=${cl_background}"
+set -g message-command-style "fg=${cl_white},bg=${cl_background}"
+
+
+#### --- Variables For Status Bar --- ####
+
+set -g @sf_sessioniconleft "#[fg=${cl_white},bg=${cl_accent}] 󱑼 #[bg=${cl_default},fg=${cl_accent}]"
+set -g @sf_sessionname "#[bg=${cl_default},fg=${cl_background}]#[fg=${cl_accent},bold,bg=${cl_background}] #S #[bg=${cl_default},fg=${cl_background}]"
+
+set -g @sf_time "#[bg=${cl_default},fg=${cl_background}]#[fg=${cl_white},bg=${cl_background}] %H:%M #[fg=${cl_background},bg=${cl_default}]"
+set -g @sf_batteryicon "#[fg=${cl_accent},bg=${cl_background}]󱐋 "
 
 #### --- Status Bar Styling --- ####
-set -g status-position top
 
-set -g status-left '#{E:@sf_sessioniconleft}#{E:@sf_sessionname}'
-set -g status-left-length 100
+set -g status-left "#{E:@sf_sessioniconleft}#{E:@sf_sessionname}"
 
-set -g window-status-separator ''
-set -g window-status-format '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#94A3B8,bg=#1E3A5F] #W #[bg=#0E1C30,fg=#1E3A5F]'
-set -g window-status-current-format '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#FFC600,bold,bg=#1E3A5F] #W #[bg=#0E1C30,fg=#1E3A5F]'
+set -g window-status-format "#[bg=${cl_default},fg=${cl_background}]#[fg=${cl_inactive},bg=${cl_background}] #W #[bg=${cl_default},fg=${cl_background}]"
+set -g window-status-current-format "#[bg=${cl_default},fg=${cl_background}]#[fg=${cl_active},bold,bg=${cl_background}] #W #[bg=${cl_default},fg=${cl_background}]"
 
-set -g status-right '#[bg=#0E1C30,fg=#1E3A5F]#[fg=#94A3B8,bg=#1E3A5F]#{weather} #[fg=#1E3A5F,bg=#0E1C30]#{E:@sf_time}#[fg=#1E3A5F,bg=#0E1C30]#[fg=#FFFFFF,bg=#1E3A5F] #{battery_percentage} #{E:@sf_batteryicon}'
+set -g status-right "#[bg=${cl_default},fg=${cl_background}]#[fg=${cl_inactive},bg=${cl_background}]#{weather} #[fg=${cl_background},bg=${cl_default}]#{E:@sf_time}#[fg=${cl_background},bg=${cl_default}]#[fg=${cl_white},bg=${cl_background}] #{battery_percentage} #{E:@sf_batteryicon}"
