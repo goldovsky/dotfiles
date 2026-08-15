@@ -25,8 +25,8 @@ set -g status-left-length 100
 # set -g status-style "fg=${cl_white},bg=${cl_default}"
 
 # Pane borders
-# set -g pane-border-style "fg=${cl_background}"
-# set -g pane-active-border-style "fg=#00DC82"
+set -g pane-border-style "fg=${cl_background}"
+set -g pane-active-border-style "fg=${cl_accent}"
 
 # Message styling
 set -g message-style "fg=${cl_white},bg=${cl_background}"
