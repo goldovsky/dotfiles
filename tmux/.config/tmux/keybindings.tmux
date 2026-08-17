@@ -3,6 +3,14 @@ set -g prefix C-Space
 unbind C-b
 bind C-Space send-prefix
 
+# Add backtick as secondary prefix (QWERTY - key next to 1)
+set -g prefix2 `
+bind ` send-keys `
+
+# Add œ as prefix trigger (AZERTY - key next to 1)
+bind -n œ switch-client -T prefix
+bind œ send-keys œ
+
 # Reload tmux config
 unbind r
 bind r source-file ~/.tmux.conf \; display-message "Tmux config reloaded!"
