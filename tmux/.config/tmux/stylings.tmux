@@ -3,7 +3,8 @@
 # source ~/git/dotfiles/shell/common/themes/outputs/tmux-colors.tmux
 
 # Colors
-cl_default="default"
+# cl_default="default"
+cl_default="#0E1D31"
 cl_background="#1E3A5F"
 cl_inactive="#94A3B8"
 cl_active="#FFC600"
@@ -21,8 +22,8 @@ ic_rr=""
 #### --- General Settings --- ####
 set -g status-position top
 set -g status-left-length 100
-# set -g window-status-separator ""
-# set -g status-style "fg=${cl_white},bg=${cl_default}"
+set -g window-status-separator ""
+set -g status-style "fg=${cl_white},bg=${cl_default}"
 
 # Pane borders
 set -g pane-border-style "fg=${cl_background}"
