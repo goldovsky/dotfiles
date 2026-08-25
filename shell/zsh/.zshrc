@@ -46,3 +46,6 @@ fi
 if [ -f ~/.config/shell/zsh/.zshrc_work ]; then
     . ~/.config/shell/zsh/.zshrc_work
 fi
+
+# Force Electron apps (VS Code) to X11: native Wayland breaks keyboard layouts (Ctrl+Z resolved as Ctrl+W)
+export ELECTRON_OZONE_PLATFORM_HINT=x11

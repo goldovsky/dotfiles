@@ -24,6 +24,8 @@ alias q="exit"
 alias ff="fastfetch"
 alias aliases="alias | fzf"
 
+nn() { npm run $(jq -r '.scripts // {} | keys[]' package.json | fzf); }
+
 # Tools
 alias bat="batcat"
 alias cat="batcat -pp -n"

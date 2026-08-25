@@ -37,3 +37,5 @@ ICON_GIT="⸎ "
 export ICON_GIT
 ICON_MARKDOWN=" "
 export ICON_MARKDOWN
+ICON_CHESS=" "
+export ICON_CHESS
