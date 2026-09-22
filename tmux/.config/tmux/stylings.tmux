@@ -34,4 +34,4 @@ set -g status-left "#{E:@sf_sessioniconleft}#{E:@sf_sessionname}"
 set -g window-status-format "#[bg=${cl_default},fg=${cl_border}]${ic_ll}#[fg=${cl_inactive},bg=${cl_border}] #W #[bg=${cl_default},fg=${cl_border}]${ic_lr}"
 set -g window-status-current-format "#[bg=${cl_default},fg=${cl_border}]${ic_ll}#[fg=${cl_active},bold,bg=${cl_border}] #W #[bg=${cl_default},fg=${cl_border}]${ic_lr}"
 
-set -g status-right "#[bg=${cl_default},fg=${cl_border}]${ic_rl}#[fg=${cl_inactive},bg=${cl_border}]#{weather} #[fg=${cl_border},bg=${cl_default}]${ic_rr}#{E:@sf_time}#[fg=${cl_border},bg=${cl_default}]${ic_rl}#[fg=${cl_bright_white},bg=${cl_border}] #{battery_percentage} #{E:@sf_batteryicon}"
+set -g status-right "#[bg=${cl_default},fg=${cl_border}]${ic_rl}#[fg=${cl_inactive},bg=${cl_border}] #{weather} #[fg=${cl_border},bg=${cl_default}]${ic_rr}#{E:@sf_time}#[fg=${cl_border},bg=${cl_default}]${ic_rl}#[fg=${cl_bright_white},bg=${cl_border}] #{battery_percentage} #{E:@sf_batteryicon}"
