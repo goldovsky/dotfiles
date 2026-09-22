@@ -1,6 +1,7 @@
 source ~/.config/shell/common/git/git.sh
 source ~/.config/shell/common/aliases/icons.sh
 source ~/.config/shell/common/scripts/tmuxInit.sh
+source ~/.config/shell/common/scripts/zb.sh
 
 alias run="~/.config/shell/common/scripts/./run.sh"
 

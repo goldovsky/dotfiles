@@ -1,0 +1,12 @@
+# zb.conf - list of projects for the 'zb' command.
+#
+# Format:  Name=path/to/dir     (one per line, '#' starts a comment)
+#
+# This file is gitignored and per-machine: keep the names stable across your
+# computers, the paths can differ. To bootstrap a new machine:
+#     zb --init      (copies this template to zb.conf)
+# then edit the paths.
+
+# Zettelkasten=/home/you/zettelkasten
+# notes=/home/you/notes
+# dotfiles=/home/you/dotfiles
