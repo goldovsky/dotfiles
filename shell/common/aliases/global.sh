@@ -35,7 +35,8 @@ alias vm="virtualbox"
 alias fmr='/home/fvlb5625/git/sandbox/scripts/formatMergeRequest.sh'
 # alias v="nvim"
 # alias vim="nvim"
-alias nv="nvim"
+alias nv="nvim ."
+alias md2pdf="~/.config/shell/common/scripts/md2pdf.sh"
 
 # IA
 alias codellama="ollama run codellama"
