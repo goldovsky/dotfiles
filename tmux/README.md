@@ -7,6 +7,7 @@ Config entry point is `.tmux.conf`, which sources everything under
 |---|---|
 | `keybindings.tmux` | prefix, splits, docker-mode, sync-panes |
 | `settings.tmux` | mouse, vi mode, clipboard, `display-time`… |
+| `icons.tmux` | nerd font glyphs, consumed by `stylings.tmux` as `${ic_*}` |
 | `stylings.tmux` | status bar, window list, colours |
 | `plugins.tmux` | TPM plugin list |
 | `local.tmux` | **not versioned**, machine-specific values (see below) |

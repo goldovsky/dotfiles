@@ -1,14 +1,3 @@
-# Icons
-## stow the icon file to source it from it
-ic_s="󱑼"
-ic_b="󱐋"
-ic_d=""
-ic_sync="󰓦"
-ic_ll=""
-ic_lr=""
-ic_rl=""
-ic_rr=""
-
 #### --- General Settings --- ####
 set -g status-position top
 set -g status-left-length 100
