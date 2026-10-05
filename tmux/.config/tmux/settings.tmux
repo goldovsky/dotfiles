@@ -9,6 +9,11 @@ set -g escape-time 0  # disable delays on escape sequences
 set -g repeat-time 1000  # increase "prefix-free" window
 set -g history-limit 50000
 
+# How long status messages stay on screen, in ms.
+# Set explicitly because tmux-sensible bumps it to 4000 whenever it still holds
+# tmux's 750 default; any other value is left alone.
+set -g display-time 1500
+
 # Start counting pane and window number at 1
 set -g base-index 1
 set -g pane-base-index 1

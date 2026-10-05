@@ -6,4 +6,6 @@ cl_border="#1E3A5F"
 cl_inactive="#94A3B8"
 cl_active="#FFC600"
 cl_accent="#00C16A"
+cl_red="#FF4444"
 cl_bright_white="#FFFFFF"
+
