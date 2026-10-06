@@ -4,8 +4,7 @@ source ~/.config/shell/common/aliases/global.sh
 source ~/.config/shell/common/scripts/tools.sh
 
 # CUSTOM SCRIPTS
-chmod +x ~/.config/shell/common/scripts/weather.sh
-chmod +x ~/.config/shell/common/scripts/run.sh
+# (no chmod here: the exec bit is tracked in git as mode 100755)
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
