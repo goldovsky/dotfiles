@@ -5,7 +5,7 @@ Config entry point is `.tmux.conf`, which sources everything under
 
 | File | Role |
 |---|---|
-| `keybindings.tmux` | prefix, splits, docker-mode, sync-panes |
+| `keybindings.tmux` | prefix, splits, sessions, docker-mode, sync-panes, copy-mode |
 | `settings.tmux` | mouse, vi mode, clipboard, `display-time`… |
 | `icons.tmux` | nerd font glyphs, consumed by `stylings.tmux` as `${ic_*}` |
 | `stylings.tmux` | status bar, window list, colours |
@@ -22,6 +22,42 @@ Plugin manager is TPM, installed by hand:
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # then prefix + I inside tmux
 ```
+
+---
+
+## Sessions
+
+One git repo, one session.
+
+| Keys | Action |
+|---|---|
+| `prefix` + `f` | fzf project picker, switches to that project's session |
+| `prefix` + `s` | Switch between existing sessions (tmux default) |
+| `prefix` + `C-s` / `C-r` | Save / restore manually (resurrect) |
+
+`scripts/sessionizer.sh` lists every git repo under `@sessionizer_paths`
+(default `~/git`) and creates the session only if it does not already exist, so
+picking the same project twice switches instead of duplicating. Worktrees are
+included for free: their `.git` is a file rather than a directory, and `-name`
+matches both. `node_modules` is pruned, which takes the scan from ~850 ms to
+~40 ms over 76 repos.
+
+Dots and colons are replaced in session names, since tmux parses them as
+`session:window.pane`.
+
+`tmx` (in `shell/common/scripts/`) still bootstraps the "home" session with its
+fixed set of windows; it is now idempotent.
+
+### Persistence
+
+`tmux-resurrect` + `tmux-continuum` save every 15 minutes and restore when the
+server starts.
+
+> **`@docker_mode` is not restored.** resurrect does not save custom window
+> options, and restoring the flag would be worse than losing it: the container
+> is usually down right after a reboot, so the window would show the docker
+> badge while its panes sit on the host. Press `prefix` + `C-d` again where you
+> want it.
 
 ---
 
@@ -44,6 +80,18 @@ Prefix is `Ctrl+Space` (secondary prefix: `` ` ``).
 | `prefix` + `-` | Horizontal split — same rule |
 | `prefix` + `S` | Toggle `synchronize-panes` (type once, send to every pane) |
 | `Ctrl-D` | Close the container shell **and** the pane, in one keystroke |
+
+### General bindings
+
+| Keys | Action |
+|---|---|
+| `prefix` + `c` | New window **in the current directory** |
+| `prefix` + `H` `J` `K` `L` | Resize pane (repeatable). Uppercase, so `vim-tmux-navigator` keeps `h/j/k/l` |
+| `C-h` `C-j` `C-k` `C-l` | Move across panes *and* nvim splits, no prefix |
+| `v` / `C-v` / `y` in copy-mode | Select / rectangle / yank to clipboard |
+
+`mode-keys vi` only provides vi *motions* in copy-mode; the selection keys have
+to be bound explicitly, which is what the last row does.
 
 ### Visual feedback
 
@@ -93,6 +141,7 @@ untouched.
 | `dev-mode-apply.sh` | Converts already-open panes, in both directions, skipping busy ones. |
 | `dev-up.sh` | Reads `@dev_up_command` and runs it. Needed because `display-popup` does not expand `#{...}` formats. |
 | `docker-status.sh` | Prints the green dot next to the session name while the container runs, nothing otherwise. |
+| `sessionizer.sh` | fzf project picker; one git repo maps to one session, created only if absent. |
 
 ---
 
@@ -121,6 +170,11 @@ set -g @dev_up_command "/home/fvlb5625/git/callbot/src/cb-docker/bin/local/runDe
 #   window (default) — every pane of the current window
 #   pane             — the current pane only
 set -g @docker_mode_scope "window"
+
+# Roots scanned by the sessionizer (prefix + f), space separated.
+# Optional: defaults to ~/git, depth 5.
+set -g @sessionizer_paths "~/git"
+set -g @sessionizer_depth "5"
 ```
 
 ### Companion change outside this repo
