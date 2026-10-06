@@ -15,6 +15,19 @@ bind œ send-keys œ
 unbind r
 bind r source-file ~/.tmux.conf \; display-message "Tmux config reloaded!"
 
+#### --- Sessions --- ####
+
+# fzf project picker: one git repo -> one session, never a duplicate.
+# Runs in a popup so it overlays the current session instead of hijacking a pane.
+bind f display-popup -w 70% -h 60% -E "~/.config/tmux/scripts/sessionizer.sh"
+
+# Jump between existing sessions: tmux already binds prefix + s to
+# `choose-tree -Zs`, so there is nothing to add here.
+
+# New window in the CURRENT directory. Without -c, tmux uses the directory the
+# session was created in, which after a sessionizer jump is rarely where you are.
+bind c new-window -c "#{pane_current_path}"
+
 # # Use xclip to copy and paste with the system clipboard
 bind C-c run "tmux save-buffer - | xclip -i -sel clip"
 bind C-v run "tmux set-buffer $(xclip -o -sel clip); tmux paste-buffer"
@@ -30,6 +43,21 @@ bind - if -F '#{==:#{@docker_mode},1}' \
 bind | if -F '#{==:#{@docker_mode},1}' \
     'split-window -h -c "#{pane_current_path}" "~/.config/tmux/scripts/dev-shell.sh"' \
     'split-window -h -c "#{pane_current_path}"'
+
+# Resize panes. -r makes them repeatable within repeat-time (settings.tmux),
+# so the prefix is pressed once and H/J/K/L can then be held.
+# Uppercase on purpose: lowercase h/j/k/l belong to vim-tmux-navigator.
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Copy mode, vi style. `mode-keys vi` (settings.tmux) only gives vi MOTIONS;
+# the selection keys still have to be bound explicitly.
+bind -T copy-mode-vi v send-keys -X begin-selection
+bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xsel -i -b'
+bind -T copy-mode-vi Escape send-keys -X cancel
 
 # Synchronize panes: type once, send to every pane of the window
 bind S setw synchronize-panes \; display-message "sync-panes #{?pane_synchronized,ON,OFF}"

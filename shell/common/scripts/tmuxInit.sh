@@ -11,6 +11,19 @@ tmx() {
   done
   shift $((OPTIND - 1))
 
+  # Idempotent: without this, re-running tmx errors out on new-session and then
+  # attaches anyway, re-creating the default windows in the process.
+  # tmx bootstraps the "home" session; per-project sessions come from
+  # prefix + f (tmux/.config/tmux/scripts/sessionizer.sh).
+  if tmux has-session -t="$session_name" 2>/dev/null; then
+    if [ -n "${TMUX:-}" ]; then
+      tmux switch-client -t "$session_name"
+    else
+      tmux attach-session -t "$session_name"
+    fi
+    return
+  fi
+
   tmux new-session -d -s "$session_name" -n "󰈸 "
 
   local default_windows=("󰒲 " "󰚩 ")
