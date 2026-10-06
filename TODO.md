@@ -6,10 +6,12 @@
     so those links are made by hand
 - script for git : git yeet (gyeet): prettier/linter/commit -am/git push origin HEAD
 - atuin doesn't reach previous history before the terminal is launched, to check
-- install `fd` (neovim health check asks for it, speeds up the snacks picker)
-- ghostty: background colour is hardcoded, so it desyncs on every theme change.
-  Either add a ghostty target to generate-colors.sh or drop the package — it
-  also launches zsh while alacritty launches bash.
+- install `fd` (`apt install fd-find`). Optional: the snacks picker already
+  falls back to ripgrep, which is installed; fd is just faster for plain file
+  listing and honours .gitignore natively. LazyVim's health check flags it
+  unconditionally, which overstates it.
+- ghostty launches zsh while alacritty launches bash and bash is the login
+  shell. Pick one. (Colours are generated now.)
 
 ## VS CODE
 
@@ -18,7 +20,12 @@
   live → repo instead, and `code-sync --check` reports drift.
 - no dev container settings, although `ms-azuretools.vscode-containers` is
   installed and the whole tmux layer targets `callbot_dev`
-- `ctrl+d` is remapped to duplicate-line, which collides with the tmux
-  docker-mode toggle (`prefix + C-d`) and with the container shell exit
+- `ctrl+d` is remapped to duplicate-line. Checked: this does NOT collide with
+  the tmux docker-mode toggle (that one is `prefix` + `C-d`, and tmux has no
+  root-table `C-d`) nor with the container shell exit (the `when` clause is
+  `editorTextFocus`, so the integrated terminal still gets EOF). The only
+  consequence is that VS Code's default multi-cursor `ctrl+d` is gone, and
+  `ctrl+shift+l`, its other multi-cursor binding, holds the console.log
+  snippet. Revisit only if multi-cursor is missed.
 - `vscodevim.vim` and `asvetliakov.vscode-neovim` are both installed but
   neither is configured — nothing is shared with the nvim setup
