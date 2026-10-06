@@ -27,23 +27,17 @@ eval "$(zoxide init zsh)"
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 
-# Callbot
-export CALLBOT_SOURCE=~/git/callbot/src
-export CALLBOT_DATA=~/git/callbot/data
-alias cbs="cd ${CALLBOT_SOURCE}"
-alias cbdev="${CALLBOT_SOURCE}/cb-docker/dev/runDevContainer.sh"
-alias rundev="cd ${CALLBOT_SOURCE} && ${CALLBOT_SOURCE}/cb-docker/dev/runDevContainer.sh"
-alias runo="cd src/cb-orchestrator && ./run.sh"
-alias rune="cd src/evalia && ./run.sh"
-
 # Personal aliases from bash
 if [ -f ~/goldovskyBash/.bashrc_goldovsky ]; then
     . ~/goldovskyBash/.bashrc_goldovsky
 fi
 
-# Work aliases
-if [ -f ~/.config/shell/zsh/.zshrc_work ]; then
-    . ~/.config/shell/zsh/.zshrc_work
+# Work aliases (unversioned, same convention as ~/.bashrc_work).
+# The Callbot block used to be inlined above: it was a stale copy of what
+# ~/.bashrc_work already defines, and its runDevContainer.sh path
+# (cb-docker/dev/) no longer exists — the real one is cb-docker/bin/local/.
+if [ -f ~/.zshrc_work ]; then
+    . ~/.zshrc_work
 fi
 
 # Force Electron apps (VS Code) to X11: native Wayland breaks keyboard layouts (Ctrl+Z resolved as Ctrl+W)
