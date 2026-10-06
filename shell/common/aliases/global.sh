@@ -37,6 +37,8 @@ alias fmr='/home/fvlb5625/git/sandbox/scripts/formatMergeRequest.sh'
 # alias vim="nvim"
 alias nv="nvim ."
 alias md2pdf="~/.config/shell/common/scripts/md2pdf.sh"
+# copy the live VS Code profile config into the repo (live -> repo)
+alias code-sync="~/.config/shell/common/scripts/code-sync.sh"
 
 # IA
 alias codellama="ollama run codellama"
