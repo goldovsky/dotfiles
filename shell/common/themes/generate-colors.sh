@@ -113,7 +113,6 @@ cl_border="$(c border)"
 cl_inactive="$(c white)"
 cl_active="$(c yellow)"
 cl_accent="$(c green)"
-cl_red="$(c red)"
 cl_bright_white="$(c bright-white)"
 
 EOF

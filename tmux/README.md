@@ -47,11 +47,10 @@ Prefix is `Ctrl+Space` (secondary prefix: `` ` ``).
 
 ### Visual feedback
 
-- **Status bar, right**: Docker icon plus a dot, green when the container is up,
-  red when it is down or missing.
 - **Status bar, left**: the session badge turns amber with a Docker icon when
   the current window is in docker-mode (green otherwise).
-- **Window list**: a Docker icon marks each window currently in docker-mode.
+- **Session name**: a green dot sits right after the session name while the dev
+  container is running. Nothing is shown when it is down or missing.
 
 ### How it works
 
@@ -59,7 +58,7 @@ Prefix is `Ctrl+Space` (secondary prefix: `` ` ``).
 
 1. the split bindings, which choose between a normal split and one running
    `scripts/dev-shell.sh`;
-2. the status bar formats, for the badge and the window markers.
+2. the status bar format of the session badge.
 
 Because it is per window, opening a brand new window (`prefix` + `c`) still
 gives a plain host shell — the usual "I just need a quick shell" case.
@@ -93,7 +92,7 @@ untouched.
 | `dev-shell.sh` | Opens the container shell. Translates the host cwd to its container counterpart, and falls back to a host shell (with a warning) if the container is down. |
 | `dev-mode-apply.sh` | Converts already-open panes, in both directions, skipping busy ones. |
 | `dev-up.sh` | Reads `@dev_up_command` and runs it. Needed because `display-popup` does not expand `#{...}` formats. |
-| `docker-status.sh` | Prints the coloured dot for the status bar. |
+| `docker-status.sh` | Prints the green dot next to the session name while the container runs, nothing otherwise. |
 
 ---
 
