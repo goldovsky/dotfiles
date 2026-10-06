@@ -4,15 +4,16 @@
 
 command = /usr/bin/zsh
 
-# ghostty +list-themes
-# theme = Cobalt2
+# Colours come from the theme generator, same source as alacritty/tmux/starship.
+# Regenerate with `theme <preset>`; ghostty reloads with ctrl+shift+, .
+# Do not set `background`/`theme` here, this include owns them.
+config-file = ?~/git/dotfiles/shell/common/themes/outputs/ghostty-theme
 
 confirm-close-surface = false
 
 # background-opacity = 0.80
 # background-blur = true
 # background-blur-radius = 50
-background = #0E1D31
 
 window-decoration = false
 window-padding-color = extend
