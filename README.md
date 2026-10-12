@@ -13,7 +13,7 @@ editors, and a tmux "docker-mode" for working inside a dev container.
 | `nvim` | `~/.config/nvim/` | stow |
 | `starship` | `~/.config/starship/` | stow |
 | `tmux` | `~/.tmux.conf`, `~/.config/tmux/` | stow |
-| `shell` | `~/.bashrc`, `~/.config/shell/` | **by hand**, see below |
+| `shell` | `~/.bashrc`, `~/.zshrc`, `~/.config/shell/` | **by hand**, see below |
 | `keyd` | `/etc/keyd/` | `keyd/install.sh` |
 | `vscode` | VS Code profile dir | **copied**, see `vscode/README.md` |
 
@@ -27,9 +27,22 @@ stow -t ~ --adopt <package>
 
 > **`shell/` is not stow-compatible.** Its layout is `shell/<shell>/...`, so
 > `stow -t ~ shell` creates `~/bash`, `~/zsh` and `~/common` rather than the
-> intended targets. `~/.bashrc` and `~/.config/shell/{bash,common}` are
-> therefore symlinked by hand. Restructuring it is part of the install-script
-> TODO.
+> intended targets. `~/.bashrc`, `~/.zshrc` and `~/.config/shell/{bash,common}`
+> are therefore symlinked by hand. Restructuring it is part of the
+> install-script TODO.
+
+## Checking
+
+```bash
+dotcheck          # or: bin/dotfiles-check.sh
+dotcheck --quiet  # only problems
+```
+
+Read-only; exits 1 on drift. Reports broken or missing symlinks, stow packages
+that are not fully linked, colour files that no longer match their preset, a
+VS Code profile the repo is behind on, missing machine-local files and missing
+dependencies. It compares links and files — it does not prove a config is
+correct. `AGENTS.md` carries the invariants it enforces.
 
 ## Machine-local files
 
@@ -65,15 +78,19 @@ paid once per tmux pane, which is why it is worth it.
 ## Themes
 
 `shell/common/themes/generate-colors.sh <preset>` reads `presets/<preset>.json`
-and writes Alacritty, tmux, Starship and OpenCode colours. Presets: `cobalt2`,
-`cobalt2-light`, `nuxt` (current).
+and writes Alacritty, Ghostty, tmux, Starship and OpenCode colours. Presets:
+`cobalt2`, `cobalt2-light`, `nuxt` (current).
 
 ```bash
 theme nuxt   # regenerates and reloads tmux
 ```
 
-Not covered by the generator: Neovim (`cobalt.nvim`), VS Code (Cobalt2 theme)
-and Ghostty, whose background is hardcoded. These are aligned by hand.
+`--outdir <dir>` generates into a directory instead of the live locations and
+touches nothing else; `dotcheck` uses it to diff a fresh generation against the
+committed outputs.
+
+Not covered by the generator: Neovim (`cobalt.nvim`) and VS Code (Cobalt2
+theme). These are aligned by hand.
 
 ## tmux
 
