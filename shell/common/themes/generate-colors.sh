@@ -19,13 +19,17 @@ OUTDIR="${SCRIPT_DIR}/outputs"
 STARSHIP_CONFIG="${HOME}/git/dotfiles/starship/.config/starship/starship.toml"
 
 usage() {
-    echo -e "${BOLD}Usage:${NC} $(basename "$0") [theme-name]"
+    echo -e "${BOLD}Usage:${NC} $(basename "$0") [theme-name] [--outdir <dir>]"
     echo ""
     echo "Generate color configs for alacritty, tmux, and starship from a JSON theme file."
     echo ""
     echo -e "${BOLD}Arguments:${NC}"
-    echo "  theme-name    Name of the JSON file (without .json extension)"
-    echo "                Defaults to 'cobalt2' if not specified"
+    echo "  theme-name      Name of the JSON file (without .json extension)"
+    echo "                  Defaults to 'cobalt2' if not specified"
+    echo "  --outdir <dir>  Write every artefact into <dir> instead of the live"
+    echo "                  locations, and touch nothing else. Used by"
+    echo "                  bin/dotfiles-check.sh to regenerate into a temporary"
+    echo "                  directory and diff against the committed outputs."
     echo ""
     echo -e "${BOLD}Examples:${NC}"
     echo "  $(basename "$0")              # Use cobalt2.json"
@@ -36,14 +40,51 @@ usage() {
     ls "$PRESETS_DIR"/*.json 2>/dev/null | xargs -I {} basename {} .json || echo "  (none found)"
 }
 
-# Handle help flag
-if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
-    usage
-    exit 0
-fi
+THEME=""
+CUSTOM_OUTDIR=""
 
-THEME="${1:-cobalt2}"
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --help|-h)
+            usage
+            exit 0
+            ;;
+        --outdir)
+            [ -n "${2:-}" ] || { echo -e "${RED}Error:${NC} --outdir requires a directory"; exit 1; }
+            CUSTOM_OUTDIR="$2"
+            shift 2
+            ;;
+        --outdir=*)
+            CUSTOM_OUTDIR="${1#--outdir=}"
+            shift
+            ;;
+        -*)
+            echo -e "${RED}Error:${NC} unknown option: $1"
+            exit 1
+            ;;
+        *)
+            THEME="$1"
+            shift
+            ;;
+    esac
+done
+
+THEME="${THEME:-cobalt2}"
 SOURCE="${PRESETS_DIR}/${THEME}.json"
+
+# In --outdir mode every write is redirected into the given directory, so the
+# caller can compare a fresh generation against the committed state without
+# mutating the live config. The starship config is copied in first because the
+# generator patches it in place rather than writing it from scratch.
+if [ -n "$CUSTOM_OUTDIR" ]; then
+    [ -d "$CUSTOM_OUTDIR" ] || { echo -e "${RED}Error:${NC} --outdir not a directory: ${CUSTOM_OUTDIR}"; exit 1; }
+    OUTDIR="$(cd "$CUSTOM_OUTDIR" && pwd -P)"
+    if [ -f "$STARSHIP_CONFIG" ]; then
+        cp "$STARSHIP_CONFIG" "${OUTDIR}/starship.toml"
+    fi
+    STARSHIP_CONFIG="${OUTDIR}/starship.toml"
+    OPENCODE_THEME_OVERRIDE="${OUTDIR}/opencode-custom.json"
+fi
 
 # Check if source file exists
 if [ ! -f "$SOURCE" ]; then
@@ -227,7 +268,10 @@ else
 fi
 
 # --- OpenCode ---
-OPENCODE_THEME="${HOME}/.config/opencode/themes/custom.json"
+OPENCODE_THEME="${OPENCODE_THEME_OVERRIDE:-${HOME}/.config/opencode/themes/custom.json}"
+if [ ! -d "$(dirname "$OPENCODE_THEME")" ]; then
+    echo -e "  ${YELLOW}⚠${NC} OpenCode    → $(dirname "$OPENCODE_THEME") not found, skipped"
+else
 python3 << PYEOF
 import json
 
@@ -249,6 +293,15 @@ with open("${OPENCODE_THEME}", "w") as f:
 PYEOF
 
 echo -e "  ${GREEN}✓${NC} OpenCode    → ${OPENCODE_THEME}"
+fi
+
+# In --outdir mode nothing was written to the live config, so the reload hints
+# below would be misleading.
+if [ -n "$CUSTOM_OUTDIR" ]; then
+    echo ""
+    echo -e "${BOLD}${MAGENTA}  󰏗 Theme: ${THEME_NAME}${NC} (generated into ${OUTDIR}, live config untouched)"
+    exit 0
+fi
 
 echo ""
 echo -e "${BOLD}${MAGENTA}  󰏗 Theme: ${THEME_NAME}${NC}"
