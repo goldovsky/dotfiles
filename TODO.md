@@ -6,12 +6,14 @@
     so those links are made by hand
 - script for git : git yeet (gyeet): prettier/linter/commit -am/git push origin HEAD
 - atuin doesn't reach previous history before the terminal is launched, to check
-- install `fd` (`apt install fd-find`). Optional: the snacks picker already
-  falls back to ripgrep, which is installed; fd is just faster for plain file
-  listing and honours .gitignore natively. LazyVim's health check flags it
-  unconditionally, which overstates it.
+- ~~install `fd`~~ — already installed as `fdfind` (the Debian name, package
+  `fd-find`). Nothing to do; `dotcheck` probes both names.
 - ghostty launches zsh while alacritty launches bash and bash is the login
   shell. Pick one. (Colours are generated now.)
+- `~/.zshrc` is now symlinked to the repo, but `~/.zshrc_work` does not exist,
+  so zsh has no Callbot aliases. Create it if zsh is kept — note the old inline
+  block pointed at `cb-docker/dev/runDevContainer.sh`, which no longer exists;
+  the real path is `cb-docker/bin/local/`.
 
 ## VS CODE
 
