@@ -25,7 +25,10 @@ set -uo pipefail
 
 REPO="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/.." && pwd -P)"
 EXPECTED_REPO="${HOME}/git/dotfiles"
-STOW_PACKAGES=(alacritty fastfetch ghostty nvim starship tmux)
+STOW_PACKAGES=(alacritty fastfetch ghostty nvim starship tmux opencode)
+# opencode writes node_modules, lockfiles and a generated theme into its own
+# config dir; folding would make that dir a symlink and land them in the repo.
+NO_FOLDING_PACKAGES=" opencode "
 
 QUIET=false
 for arg in "$@"; do
@@ -77,13 +80,15 @@ if ! command -v stow >/dev/null 2>&1; then
     err "stow is not installed (apt install stow)"
 else
     for pkg in "${STOW_PACKAGES[@]}"; do
-        actions="$(cd "$REPO" && stow -n -v -t "$HOME" "$pkg" 2>&1 \
+        fold=""
+        [[ "$NO_FOLDING_PACKAGES" == *" $pkg "* ]] && fold="--no-folding"
+        actions="$(cd "$REPO" && stow -n -v $fold -t "$HOME" "$pkg" 2>&1 \
             | grep -E '^(LINK|UNLINK|MKDIR|RMDIR|CONFLICT|ERROR)' || true)"
         if [ -z "$actions" ]; then
             ok "$pkg"
         else
             count="$(printf '%s\n' "$actions" | wc -l)"
-            err "$pkg — ${count} pending action(s), run: stow -t ~ $pkg"
+            err "$pkg — ${count} pending action(s), run: stow ${fold:+$fold }-t ~ $pkg"
             printf '%s\n' "$actions" | head -5 | while IFS= read -r line; do hint "$line"; done
             [ "$count" -gt 5 ] && hint "... and $((count - 5)) more"
         fi
@@ -190,10 +195,41 @@ check_local "${HOME}/.zshrc_work"                 "work env, zsh"
 check_local "${HOME}/.config/tmux/local.tmux"     "dev container, sessionizer roots"
 check_local "${REPO}/shell/common/zb.conf"        "project list for zb"
 
-# ── 8. Dependencies ──────────────────────────────────────────────────────────
+# ── 8. OpenCode layers ───────────────────────────────────────────────────────
+# The base is stowed; mission and machine layers come from env vars set in
+# ~/.bashrc_work. A var pointing at nothing silently drops a layer. A plain
+# opencode.json beside the stowed .jsonc means a tool (Pen "Settings -> MCP")
+# wrote config there, usually with a path that breaks on the next launch.
+section "8. OpenCode"
+oc_dir="${HOME}/.config/opencode"
+if [ -e "${oc_dir}/opencode.json" ]; then
+    warn "$(tilde "${oc_dir}")/opencode.json exists — something wrote config beside the stowed .jsonc"
+    hint "move what it holds to \$OPENCODE_CONFIG, then delete it"
+else
+    ok "no stray opencode.json"
+fi
+for var in OPENCODE_CONFIG OPENCODE_CONFIG_DIR; do
+    val="${!var:-}"
+    if [ -z "$val" ]; then ok "$var unset (base layer only)"
+    elif [ -e "$val" ]; then ok "$var → $(tilde "$val")"
+    else err "$var points at missing $(tilde "$val")"; fi
+done
+if [ "$(git -C "$REPO" config core.hooksPath || true)" = "githooks" ]; then
+    ok "leak-check pre-commit hook enabled"
+else
+    warn "leak-check hook not enabled, run: git config core.hooksPath githooks"
+fi
+if leak="$("$REPO/bin/leak-check.sh" --all 2>&1)"; then
+    ok "leak-check: tracked files clean"
+else
+    err "leak-check found sensitive content"
+    printf '%s\n' "$leak" | sed -n '2,6p' | while IFS= read -r line; do hint "$line"; done
+fi
+
+# ── 9. Dependencies ──────────────────────────────────────────────────────────
 # Debian renames two of these to avoid a name clash, so each entry is a list of
 # acceptable binaries. zb.sh probes for batcat/bat the same way.
-section "8. Dependencies"
+section "9. Dependencies"
 missing=()
 for spec in git stow tmux fzf rg nvim "batcat|bat" zoxide atuin starship lazygit fastfetch; do
     found=false

@@ -1,0 +1,38 @@
+{
+  // Base layer, shared by every machine and every mission.
+  //
+  // This file is public. It must never hold a model choice, a provider URL,
+  // a client name or a credential. Those live in two other layers:
+  //   - mission: $OPENCODE_CONFIG_DIR (team repo: agents, commands, MCP)
+  //   - machine: $OPENCODE_CONFIG (personal, unversioned: model, local MCP)
+  // Both are exported from ~/.bashrc_work, so a personal machine without that
+  // file gets this base only.
+  //
+  // Do not create ~/.config/opencode/opencode.json next to this file: some
+  // tools (Pen "Settings -> MCP") write there, and dotcheck flags it.
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": "notify",
+
+  // Long sessions: compact automatically, and keep a single huge tool output
+  // from filling the context. Truncated output is saved to disk and readable.
+  "compaction": { "auto": true },
+  "tool_output": { "max_lines": 1000 },
+
+  // Everything is allowed except what leaves the machine or destroys work.
+  // Last matching rule wins, so the broad rule comes first.
+  "permission": {
+    "bash": {
+      "*": "allow",
+      "rm *": "ask",
+      "git push*": "ask",
+      "git reset --hard*": "ask",
+      "git clean*": "ask",
+      "glab mr note*": "ask",
+      "glab mr create*": "ask",
+      "glab mr merge*": "ask",
+      "gh pr create*": "ask",
+      "gh pr merge*": "ask",
+      "sudo *": "ask"
+    }
+  }
+}

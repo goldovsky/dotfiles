@@ -31,3 +31,15 @@
   snippet. Revisit only if multi-cursor is missed.
 - `vscodevim.vim` and `asvetliakov.vscode-neovim` are both installed but
   neither is configured — nothing is shared with the nvim setup
+
+## Project workflow
+
+- Archify
+- Graft
+
+## LLM workflow
+
+- ~~MCP servers / Skills~~ — opencode base package added, mission and machine
+  layers loaded through `OPENCODE_CONFIG_DIR` / `OPENCODE_CONFIG`. See README.
+- generic skills worth adding to the base (conventional commits, bash script
+  header) once a second mission confirms they are reused.
